@@ -8,7 +8,15 @@ import { StatusTaskEnum } from '../../enums/status-task.enum';
 export class TaskStatusPipe implements PipeTransform {
 
   transform(status: StatusTaskEnum): string {
-    return status === StatusTaskEnum.completed ? 'Completed' : 'Not Completed';
+    switch (status) {
+      case StatusTaskEnum.completed:
+        return 'Completed';
+      case StatusTaskEnum.inProgress:
+        return 'In Progress';
+    
+      default:
+        return 'Not Completed';
+    }
   }
 
 }

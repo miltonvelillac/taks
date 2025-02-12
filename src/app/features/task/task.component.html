@@ -13,16 +13,14 @@
   
       @if(task().completedBy) {
       <app-text>
-        <span
-          >Completed by: {{task().completedBy}} at
-          <time [attr.datetime]="task().completedTime">{{task().completedTime | dateTime}}</time></span
-        >
+        <div>Completed by: {{task().completedBy}}</div>
+        <span>On: </span><time [attr.datetime]="task().completedTime">{{task().completedTime | dateTime}}</time>
       </app-text>
       }
     </section>
 
     <section>
-      <app-radio-btn [formField]="getFormControl(formNames.status)" [options]="getStatusOptions()"></app-radio-btn>
+      <app-status-options [formField]="getFormControl(formNames.status)" ></app-status-options>
     </section>
     <section>
       <app-button [label]="labels.submitBtn" (click)="save()"></app-button>

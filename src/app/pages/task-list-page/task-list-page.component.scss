@@ -1,7 +1,11 @@
 .task-list {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 1rem;
+
+  &__item {
+    max-width: 30rem;
+  }
 }
 
 ul {

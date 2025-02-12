@@ -1,6 +1,6 @@
 <ul class="task-list">
   @for (task of tasks$(); track task.id) {
-    <li>
+    <li class="task-list__item">
       <app-task-resume [task]="task"></app-task-resume>
     </li>
   }
