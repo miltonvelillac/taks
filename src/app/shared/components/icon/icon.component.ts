@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class IconComponent {
-
+  id = input<string>('');
   icon = input.required<string>();
   arialLabel = input<string>('');
   arialHidden = input<string>('');

@@ -6,6 +6,6 @@ export interface TaskModel {
   description: string;
   status: StatusTaskEnum;
   completedExpectedTime: number;
-  completedBy: number;
+  completedBy: string;
   completedTime: number;
 }

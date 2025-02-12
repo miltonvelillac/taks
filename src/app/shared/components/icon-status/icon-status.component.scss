@@ -1,11 +1,11 @@
 .completed {
-  color: blue;
+  color: var(--color-completed);
 }
 
 .in-progress {
-  color: green;
+  color: var(--color-in-progress);
 }
 
 .not-completed {
-  color: red;
+  color: var(--color-not-completed);
 }

@@ -1,27 +1,30 @@
 <section>
-    <h2>{{ title() }}</h2>
-    <p>{{ description() }}</p>
+    <p>{{ task().description }}</p>
     <section>
       <app-text>
         <p>
           Complete before:
-          <time> datetime="2025-02-15T10:00:00" 10:00:00 am</time>
+          <time [attr.datetime]="task().completedExpectedTime">{{task().completedExpectedTime | dateTime}}</time>
         </p>
       </app-text>
       <app-text>
-        <span>Status: {{ status() | taskStatus }}</span>
+        <span>Status: {{ task().status | taskStatus }}</span>
       </app-text>
   
-      @if(completedBy()) {
+      @if(task().completedBy) {
       <app-text>
         <span
-          >Completed by: Milton Velilla at
-          <time datetime="2025-02-15T10:10:20">2025-02-10 10:10:20 am</time></span
+          >Completed by: {{task().completedBy}} at
+          <time [attr.datetime]="task().completedTime">{{task().completedTime | dateTime}}</time></span
         >
       </app-text>
       }
     </section>
+
     <section>
-      <app-button [label]="labels.submitBtn"></app-button>
+      <app-radio-btn [formField]="getFormControl(formNames.status)" [options]="getStatusOptions()"></app-radio-btn>
+    </section>
+    <section>
+      <app-button [label]="labels.submitBtn" (click)="save()"></app-button>
     </section>
   </section>

@@ -9,6 +9,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ExpansionPanelComponent {
+  id = input<string>('');
   panelOpenState = input<boolean>(false);
 
   setOpenState(open: boolean): void {

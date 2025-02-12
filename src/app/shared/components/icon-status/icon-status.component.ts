@@ -13,6 +13,7 @@ import { IconComponent } from '../icon/icon.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconStatusComponent {
+  id = input<string>('');
   status = input<StatusTaskEnum>();
 
   statusClass = computed(() => {

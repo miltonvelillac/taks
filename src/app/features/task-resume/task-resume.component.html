@@ -4,5 +4,5 @@
     <p>{{task().description}}</p>
     <app-icon-status [status]="task().status" />
   </section>
-  <app-task [title]="task().title" [description]="task().description" openContent></app-task>
+  <app-task [task]="task()" openContent></app-task>
 </app-expansion-panel>

@@ -24,7 +24,7 @@ export class TaskListPageComponent implements OnInit {
         status: StatusTaskEnum.completed,
         description: 'test desc',
         title: 'test title',
-        completedBy: 1739380662028,
+        completedBy: 'Milton',
         completedExpectedTime: 1739380662028,
         completedTime: 1739380662028
       },
@@ -33,7 +33,7 @@ export class TaskListPageComponent implements OnInit {
         status: StatusTaskEnum.notcompleted,
         description: 'test desc 2',
         title: 'test title 2',
-        completedBy: 1739380662028,
+        completedBy: 'Milton',
         completedExpectedTime: 1739380662028,
         completedTime: 1739380662028
       }
@@ -51,7 +51,7 @@ export class TaskListPageComponent implements OnInit {
           status: StatusTaskEnum.inProgress,
           description: `test desc ${id}`,
           title: `test title ${id}`,
-          completedBy: 1739380662028,
+          completedBy: 'Milton',
           completedExpectedTime: 1739380662028,
           completedTime: 1739380662028
         }

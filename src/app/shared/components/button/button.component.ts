@@ -8,5 +8,6 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
+  id = input<string>('');
   label = input<string>('');
 }
