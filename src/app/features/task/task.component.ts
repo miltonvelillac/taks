@@ -10,6 +10,7 @@ import { TaskModel } from '@shared/models/task.model';
 import { DateTimeModule } from '@shared/pipes/date-time/date-time.module';
 import { TaskStatusPipe } from '@shared/pipes/task-status/task-status.pipe';
 import { TaskLabelsEnum } from '../../shared/enums/task-labels.enum';
+import { TasksStoreHandlerService } from '@store/tasks/handler/tasks-store-handler.service';
 
 @Component({
   selector: 'app-task',
@@ -29,6 +30,7 @@ import { TaskLabelsEnum } from '../../shared/enums/task-labels.enum';
 export class TaskComponent {
   task = input.required<TaskModel>();
 
+  tasksStoreHandlerService = inject(TasksStoreHandlerService);
   fb = inject(FormBuilder);
   form = this.createForm();
 
@@ -64,8 +66,17 @@ export class TaskComponent {
     ];
   };
 
-  save(): void {
+  async save(): Promise<void> {
     if(!this.form.valid) return;
+    const statusControl = this.getFormControl(this.formNames.status);
+    const task: TaskModel = {...this.task(), status: statusControl.value};
+
+    try {
+      await this.tasksStoreHandlerService.updateTask(task);
+      // this.tasksStoreHandlerService.loadAll();
+    } catch (error) {
+      
+    }
   }
 
 

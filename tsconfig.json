@@ -22,6 +22,7 @@
       "@features/*": ["app/features/*"],
       "@pages/*": ["app/pages/*"],
       "@shared/*": ["app/shared/*"],
+      "@store/*": ["app/store/*"],
     }
   },
   "angularCompilerOptions": {
