@@ -1,14 +1,20 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TaskComponent } from '@features/task/task.component';
+import { ExpansionPanelComponent } from '@shared/components/expansion-panel/expansion-panel.component';
+import { IconStatusComponent } from '@shared/components/icon-status/icon-status.component';
+import { TaskModel } from '@shared/models/task.model';
 
 @Component({
   selector: 'app-task-resume',
-  imports: [MatExpansionModule, TaskComponent],
+  imports: [
+    ExpansionPanelComponent,
+    TaskComponent,
+    IconStatusComponent
+  ],
   templateUrl: './task-resume.component.html',
   styleUrl: './task-resume.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaskResumeComponent {
-  readonly panelOpenState = signal(false);
+  task = input.required<TaskModel>();
 }

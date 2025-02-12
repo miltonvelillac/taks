@@ -1,0 +1,8 @@
+<mat-accordion>
+  <mat-expansion-panel (opened)="setOpenState(true)" (closed)="setOpenState(false)">
+    <mat-expansion-panel-header>
+      <ng-content select="[closeContent]"></ng-content>
+    </mat-expansion-panel-header>
+    <ng-content select="[openContent]"></ng-content>
+  </mat-expansion-panel>
+</mat-accordion>

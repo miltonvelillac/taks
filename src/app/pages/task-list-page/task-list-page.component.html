@@ -1,6 +1,8 @@
-<ul>
+<ul class="task-list">
+  @for (task of tasks(); track task.id) {
     <li>
-      <app-task-resume></app-task-resume>
+      <app-task-resume [task]="task"></app-task-resume>
     </li>
-  </ul>
-
+  }
+</ul>
+<button (click)="changeData()">change</button>

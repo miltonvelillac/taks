@@ -1,21 +1,8 @@
-<mat-accordion>
-  <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
-    <mat-expansion-panel-header>
-      <mat-panel-title> Self aware panel </mat-panel-title>
-      <mat-panel-description>
-        Currently I am {{panelOpenState() ? 'open' : 'closed'}}
-      </mat-panel-description>
-      test
-    </mat-expansion-panel-header>
-    <app-task title="title" description="description"></app-task>
-  </mat-expansion-panel>
-  <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
-    <mat-expansion-panel-header>
-      <mat-panel-title> Self aware panel </mat-panel-title>
-      <mat-panel-description>
-        Currently I am {{panelOpenState() ? 'open' : 'closed'}}
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>I'm visible because I am open</p>
-  </mat-expansion-panel>
-</mat-accordion>
+<app-expansion-panel>
+  <section closeContent class="resume">
+    <h2>{{task().title}}</h2>
+    <p>{{task().description}}</p>
+    <app-icon-status [status]="task().status" />
+  </section>
+  <app-task [title]="task().title" [description]="task().description" openContent></app-task>
+</app-expansion-panel>
