@@ -1,0 +1,27 @@
+<section>
+    <h2>{{ title() }}</h2>
+    <p>{{ description() }}</p>
+    <section>
+      <app-text>
+        <p>
+          Complete before:
+          <time> datetime="2025-02-15T10:00:00" 10:00:00 am</time>
+        </p>
+      </app-text>
+      <app-text>
+        <span>Status: {{ status() | taskStatus }}</span>
+      </app-text>
+  
+      @if(completedBy()) {
+      <app-text>
+        <span
+          >Completed by: Milton Velilla at
+          <time datetime="2025-02-15T10:10:20">2025-02-10 10:10:20 am</time></span
+        >
+      </app-text>
+      }
+    </section>
+    <section>
+      <app-button [label]="labels.submitBtn"></app-button>
+    </section>
+  </section>
