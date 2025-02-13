@@ -1,0 +1,20 @@
+@switch (titleType()) {
+  @case ('h2') {
+    <h2 [innerHTML]="title() | appTitle"></h2>
+  }
+  @case ('h3') {
+    <h3 [innerHTML]="title() | appTitle"></h3>
+  }
+  @case ('h4') {
+    <h4 [innerHTML]="title() | appTitle"></h4>
+  }
+  @case ('h5') {
+    <h5 [innerHTML]="title() | appTitle"></h5>
+  }
+  @case ('h6') {
+    <h6 [innerHTML]="title() | appTitle"></h6>
+  }
+  @default {
+    <h1 [innerHTML]="title() | appTitle"></h1>
+  }
+}

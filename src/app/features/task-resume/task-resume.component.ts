@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TaskComponent } from '@features/task/task.component';
+import { TitleComponent } from '@shared/component/title/title.component';
 import { ExpansionPanelComponent } from '@shared/components/expansion-panel/expansion-panel.component';
 import { IconStatusComponent } from '@shared/components/icon-status/icon-status.component';
 import { TaskModel } from '@shared/models/task.model';
@@ -9,7 +10,8 @@ import { TaskModel } from '@shared/models/task.model';
   imports: [
     ExpansionPanelComponent,
     TaskComponent,
-    IconStatusComponent
+    IconStatusComponent,
+    TitleComponent,
   ],
   templateUrl: './task-resume.component.html',
   styleUrl: './task-resume.component.scss',

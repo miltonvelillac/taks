@@ -11,4 +11,6 @@ export class LabelComponent {
   id = input('');
   label = input('');
   forId = input('');
+  complement = input(':');
+  showComplement = input(true);
 }

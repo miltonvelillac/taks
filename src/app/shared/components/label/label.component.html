@@ -1,1 +1,4 @@
 <label [id]="id()" [htmlFor]="forId()" [innerHTML]="label()"></label>
+@if (showComplement()) {
+  <span [innerHTML]="complement()"></span>
+}

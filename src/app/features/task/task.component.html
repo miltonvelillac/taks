@@ -2,15 +2,15 @@
   <app-text>
     <p [id]="ids.description()">{{ task().description }}</p>
   </app-text>
-  <section>
-    <div>
+  <section class="task__section">
+    <div class="task__item">
       <app-label [label]="labels.completedBeforeLabel" [id]="ids.completedBeforeLabel()" [forId]="ids.completedBefore()"></app-label>
       <app-text>
         <time [id]="ids.completedBefore()" [attr.datetime]="task().completedExpectedTime">{{task().completedExpectedTime | dateTime}}</time>
       </app-text>
     </div>
 
-    <div>
+    <div class="task__item">
       <app-label [label]="labels.statusLabel" [id]="ids.statusLabel()" [forId]="ids.status()"></app-label>
       <app-text>
         <span [id]="ids.status()">{{ task().status | taskStatus }}</span>
@@ -18,13 +18,12 @@
     </div>
 
     @if(task().completedBy) {
-
-      <div>
+      <div class="task__item">
         <app-label [id]="ids.completedByLabel()" [forId]="ids.completedBy()" [label]="labels.completedByLabel"></app-label>
         <app-text [id]="ids.completedBy()">{{task().completedBy}}</app-text>
       </div>
 
-      <div>
+      <div class="task__item">
         <app-label [id]="ids.completedTimeLabel()" [forId]="ids.completedTime()" [label]="labels.completedTimeLabel"></app-label>
         <app-text>
           <time [id]="ids.completedTime()" [attr.datetime]="task().completedTime">{{task().completedTime | dateTime}}</time>
@@ -34,11 +33,13 @@
   </section>
 
   @if (task().comments) {
-    <section>
-      <app-label [id]="ids.commentsLabel()" [forId]="ids.comments()" [label]="labels.commentsLabel"></app-label>
-      <app-text>
-        <p [id]="ids.comments()">{{task().comments}}</p>
-      </app-text>
+    <section class="task__section">
+      <div class="task__item--col">
+        <app-label [id]="ids.commentsLabel()" [forId]="ids.comments()" [label]="labels.commentsLabel"></app-label>
+        <app-text>
+          <p [id]="ids.comments()">{{task().comments}}</p>
+        </app-text>
+      </div>
     </section>
   }
 

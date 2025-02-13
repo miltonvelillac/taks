@@ -1,6 +1,6 @@
-<app-expansion-panel>
+<app-expansion-panel [panelOpenState]="true">
   <section closeContent class="resume">
-    <h2>{{task().title}}</h2>
+    <app-title [title]="task().title" titleType="h2" />
     <app-icon-status [status]="task().status" />
   </section>
   <app-task [task]="task()" openContent></app-task>
