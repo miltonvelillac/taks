@@ -7,8 +7,8 @@ import { TaskFormNamesEnum } from '@shared/enums/task-form-names.enum';
 import { TaskModel } from '@shared/models/task.model';
 import { DateTimeModule } from '@shared/pipes/date-time/date-time.module';
 import { TaskStatusPipe } from '@shared/pipes/task-status/task-status.pipe';
+import { LabelsText } from '@shared/text/labels.texts';
 import { TasksStoreHandlerService } from '@store/tasks/handler/tasks-store-handler.service';
-import { TaskLabelsEnum } from '../../shared/enums/task-labels.enum';
 
 @Component({
   selector: 'app-task',
@@ -32,8 +32,8 @@ export class TaskComponent {
   fb = inject(FormBuilder);
   form = this.createForm();
 
-  labels = TaskLabelsEnum;
   formNames = TaskFormNamesEnum;
+  labels = LabelsText.task;
 
   setFormValues$ = effect(() => {
     if(!this.form) return;

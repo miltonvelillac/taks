@@ -2,19 +2,19 @@
     <p>{{ task().description }}</p>
     <section>
       <app-text>
-        <p>
+        <p i18n>
           Complete before:
           <time [attr.datetime]="task().completedExpectedTime">{{task().completedExpectedTime | dateTime}}</time>
         </p>
       </app-text>
       <app-text>
-        <span>Status: {{ task().status | taskStatus }}</span>
+        <span i18n>Status: {{ task().status | taskStatus }}</span>
       </app-text>
   
       @if(task().completedBy) {
       <app-text>
-        <div>Completed by: {{task().completedBy}}</div>
-        <span>On: </span><time [attr.datetime]="task().completedTime">{{task().completedTime | dateTime}}</time>
+        <div i18n>Completed by: {{task().completedBy}}</div>
+        <span i18n>On: </span><time [attr.datetime]="task().completedTime">{{task().completedTime | dateTime}}</time>
       </app-text>
       }
     </section>
@@ -22,7 +22,7 @@
     @if (task().comments) {
       <section>
         <app-text>
-          <p>Comments: {{task().comments}}</p>
+          <p i18n>Comments: {{task().comments}}</p>
         </app-text>
       </section>
     }

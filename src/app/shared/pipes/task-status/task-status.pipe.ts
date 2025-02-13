@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { StatusTaskEnum } from '../../enums/status-task.enum';
+import { LabelsText } from '@shared/text/labels.texts';
 
 @Pipe({
   name: 'taskStatus',
@@ -10,12 +11,12 @@ export class TaskStatusPipe implements PipeTransform {
   transform(status: StatusTaskEnum): string {
     switch (status) {
       case StatusTaskEnum.completed:
-        return 'Completed';
+        return LabelsText.status.completed;
       case StatusTaskEnum.inProgress:
-        return 'In Progress';
+        return LabelsText.status.inProgress;
     
       default:
-        return 'Not Completed';
+        return LabelsText.status.notCompleted;
     }
   }
 
