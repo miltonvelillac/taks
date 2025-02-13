@@ -1,4 +1,5 @@
 <section class="login">
+  @if (errorMessage()) { <app-error [id]="ids.errorMessae()" [message]="errorMessage()"/> }
   <form [formGroup]="form" class="login__form">
     <app-input type="email" [id]="ids.userInput()" [name]="names.email" [placeholder]="labels.placeholderUser" [showClear]="true" [formField]="getFormField(formNames.user)"/>
     <app-input type="password" [id]="ids.passwordInput()" [name]="names.password" [placeholder]="labels.placeholderPassword" [showClear]="true" [formField]="getFormField(formNames.password)"/>

@@ -17,6 +17,7 @@ export const IdsConstant = {
       updateStatus: (id = `updateStatusTaskId`) => `${id}${index}`,
     }),
     login: (index = '') => ({
+      errorMessae: (id = 'errorMessageLoginId') => `${id}${index}`,
       userInput: (id = 'userLoginId') => `${id}${index}`,
       passwordInput: (id = 'passwordLoginId') => `${id}${index}`,
       submitBtn: (id = 'submitBtnLoginId') => `${id}${index}`,
