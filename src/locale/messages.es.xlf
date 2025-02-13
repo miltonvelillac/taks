@@ -2,11 +2,11 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="187187500641108332" datatype="html">
-        <source><x id="INTERPOLATION" equiv-text="{{label()}}"/></source>
+      <trans-unit id="6109782390422892906" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{label()}}"/> <x id="START_BLOCK_IF" equiv-text="@if (icon()) {"/><x id="START_TAG_APP_ICON" ctype="x-app_icon" equiv-text="&lt;app-icon [icon]=&quot;icon()&quot; /&gt;"/><x id="CLOSE_TAG_APP_ICON" ctype="x-app_icon" equiv-text="&lt;app-icon [icon]=&quot;icon()&quot; /&gt;"/><x id="CLOSE_BLOCK_IF" equiv-text="}"/></source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/button/button.component.html</context>
-          <context context-type="linenumber">1,2</context>
+          <context context-type="sourcefile">src/app/shared/components/buttons/button/button.component.html</context>
+          <context context-type="linenumber">2,5</context>
         </context-group>
       </trans-unit>
       <trans-unit id="taskLabelComments" datatype="html">
@@ -84,6 +84,41 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
           <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loginActionBtns" datatype="html">
+        <source>or</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loginGoogleBtn" datatype="html">
+        <source>Sign in with Google</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loginSubmitBtn" datatype="html">
+        <source>Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loginUserInput" datatype="html">
+        <source>Enter your email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loginPasswordInput" datatype="html">
+        <source>Enter your password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
+          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
     </body>

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TitlePipeModule } from '@shared/pipes/title/title.pipe.module';
-import { titleType } from '@shared/types/title.type';
+import { TitleType } from '@shared/types/title.type';
 
 @Component({
   selector: 'app-title',
@@ -11,6 +11,6 @@ import { titleType } from '@shared/types/title.type';
 })
 export class TitleComponent {
   title = input('');
-  titleType = input<titleType>('h1');
+  titleType = input<TitleType>('h1');
   
 }

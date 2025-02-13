@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, effect, inject, Input, input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StatusOptionsComponent } from '@features/status-options/status-options.component';
-import { ButtonComponent } from '@shared/components/button/button.component';
+import { ButtonComponent } from '@shared/components/buttons/button/button.component';
 import { LabelComponent } from '@shared/components/label/label.component';
 import { TextComponent } from '@shared/components/text/text.component';
 import { TaskFormNamesEnum } from '@shared/enums/task-form-names.enum';

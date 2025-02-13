@@ -5,5 +5,9 @@ export const routes: Routes = [
         path: 'tasks',
         loadComponent: () => import('./pages/task-list-page/task-list-page.component').then(c => c.TaskListPageComponent)
     },
+    {
+        path: 'login',
+        loadComponent: () => import('./pages/login/login.component').then(c => c.LoginComponent)
+    },
     { path: '**',   redirectTo: 'tasks', pathMatch: 'full' },
 ];

@@ -15,6 +15,12 @@ export const IdsConstant = {
       statusAction: (id = `statusTasklId`) => `${id}${index}`,
       submitBtn: (id = `submitBtnTaskId`) => `${id}${index}`,
       updateStatus: (id = `updateStatusTaskId`) => `${id}${index}`,
+    }),
+    login: (index = '') => ({
+      userInput: (id = 'userLoginId') => `${id}${index}`,
+      passwordInput: (id = 'passwordLoginId') => `${id}${index}`,
+      submitBtn: (id = 'submitBtnLoginId') => `${id}${index}`,
+      googleBtn: (id = 'googleBtnLoginId') => `${id}${index}`,
     })
-  }
+  },
 }

@@ -15,5 +15,12 @@ export const LabelsText = {
   },
   menu: {
     today: $localize`:@@menuToday:Today`,
+  },
+  login: {
+    actionsBtns: $localize`:@@loginActionBtns:or`,
+    googleBtn: $localize`:@@loginGoogleBtn:Sign in with Google`,
+    submitBtn: $localize`:@@loginSubmitBtn:Login`,
+    placeholderUser: $localize`:@@loginUserInput:Enter your email`,
+    placeholderPassword: $localize`:@@loginPasswordInput:Enter your password`,
   }
 }

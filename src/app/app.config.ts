@@ -33,3 +33,12 @@ export const appConfig: ApplicationConfig = {
     provideFirestore(() => getFirestore()), provideDatabase(() => getDatabase()), provideFunctions(() => getFunctions()), provideStorage(() => getStorage())
   ]
 };
+const firebaseConfig = {
+  apiKey: "AIzaSyAXcjcOn01aUyhlu9xqNOXdZA7C_oLQK-8",
+  authDomain: "tasks-38972.firebaseapp.com",
+  projectId: "tasks-38972",
+  storageBucket: "tasks-38972.firebasestorage.app",
+  messagingSenderId: "366699235024",
+  appId: "1:366699235024:web:b4afa9926dcf20b77a80d5",
+  measurementId: "G-6V2B9SM2NT"
+};
