@@ -12,5 +12,8 @@ export const LabelsText = {
     completed: $localize`:@@statusCompleted:completed`,
     inProgress: $localize`:@@statusInProgress:in progress`,
     notCompleted: $localize`:@@statusNotCompleted:not completed`,
+  },
+  menu: {
+    today: $localize`:@@menuToday:Today`,
   }
 }
