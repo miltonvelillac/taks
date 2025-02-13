@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule } from '@ang
 import { Router } from '@angular/router';
 import { EmailBtnComponent } from '@shared/components/buttons/email-btn/email-btn.component';
 import { GoogleBtnComponent } from '@shared/components/buttons/google-btn/google-btn.component';
+import { CardComponent } from '@shared/components/cards/card/card.component';
 import { ErrorComponent } from '@shared/components/errors/error/error.component';
 import { InputComponent } from '@shared/components/input/input.component';
 import { LoginFormNamesEnum } from '@shared/enums/login-form-names.enum';
@@ -20,6 +21,7 @@ import { InputNames } from '@shared/utils/names/input.names';
     GoogleBtnComponent,
     EmailBtnComponent,
     ErrorComponent,
+    CardComponent,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
