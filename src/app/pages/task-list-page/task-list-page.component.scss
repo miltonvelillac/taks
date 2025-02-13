@@ -1,10 +1,17 @@
+:host {
+  display: flow;
+  height: 100%;
+  max-width: 92rem;
+  margin: auto;
+}
+
 .task-list {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 
   &__item {
-    max-width: 30rem;
+    width: 30rem;
   }
 }
 

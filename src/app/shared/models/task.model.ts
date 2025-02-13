@@ -8,4 +8,5 @@ export interface TaskModel {
   completedExpectedTime: number;
   completedBy: string;
   completedTime: number;
+  comments: string;
 }

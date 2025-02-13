@@ -1,0 +1,17 @@
+.radio-btn {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+:host-context(.col) .radio-btn {
+  flex-direction: column;
+}
+
+:host-context(.no-wrap) .radio-btn {
+  flex-wrap: nowrap;
+}
+
+:host ::ng-deep .mat-mdc-radio-button .mdc-radio {
+  padding: 0 !important;
+}

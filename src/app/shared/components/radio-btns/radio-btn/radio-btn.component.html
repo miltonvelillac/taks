@@ -1,4 +1,4 @@
-<mat-radio-group [id]="id" [attr.aria-label]="arialLabel()" [formControl]="formField()">
+<mat-radio-group [id]="id" [attr.aria-label]="arialLabel()" [formControl]="formField()" class="radio-btn">
   @for (opt of options(); track $index) {
     <mat-radio-button [id]="id()+$index" [value]="opt.value">{{opt.label}}</mat-radio-button>
   }

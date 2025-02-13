@@ -1,4 +1,4 @@
-<section>
+<section class="task">
     <p>{{ task().description }}</p>
     <section>
       <app-text>
@@ -18,6 +18,14 @@
       </app-text>
       }
     </section>
+
+    @if (task().comments) {
+      <section>
+        <app-text>
+          <p>Comments: {{task().comments}}</p>
+        </app-text>
+      </section>
+    }
 
     <section>
       <app-status-options [formField]="getFormControl(formNames.status)" ></app-status-options>
