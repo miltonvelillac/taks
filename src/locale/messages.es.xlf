@@ -2,48 +2,6 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="4696775203720019133" datatype="html">
-        <source> Complete before: <x id="START_TAG_TIME" ctype="x-time" equiv-text="&lt;time [attr.datetime]=&quot;task().completedExpectedTime&quot;&gt;"/><x id="INTERPOLATION" equiv-text="{{task().completedExpectedTime | dateTime}}"/><x id="CLOSE_TAG_TIME" ctype="x-time" equiv-text="&lt;/time&gt;"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/task/task.component.html</context>
-          <context context-type="linenumber">6,9</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2896314940323402865" datatype="html">
-        <source>Status: <x id="INTERPOLATION" equiv-text="{{ task().status | taskStatus }}"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/task/task.component.html</context>
-          <context context-type="linenumber">11,12</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1345234434164801821" datatype="html">
-        <source>Completed by: <x id="INTERPOLATION" equiv-text="{{task().completedBy}}"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/task/task.component.html</context>
-          <context context-type="linenumber">16,17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="4346906393818370120" datatype="html">
-        <source>On: </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/task/task.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3067201993058171724" datatype="html">
-        <source>Comments: <x id="INTERPOLATION" equiv-text="{{task().comments}}"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/task/task.component.html</context>
-          <context context-type="linenumber">25,26</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3070903953215143597" datatype="html">
-        <source>My title</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/task-list-page/task-list-page.component.html</context>
-          <context context-type="linenumber">1,3</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="187187500641108332" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="{{label()}}"/></source>
         <context-group purpose="location">
@@ -51,42 +9,74 @@
           <context context-type="linenumber">1,2</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="taskLabelComments" datatype="html">
+        <source>Comments</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="taskLabelCompletedBefore" datatype="html">
+        <source>Complete before</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="taskLabelCompletedTime" datatype="html">
+        <source>On</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="taskLabelCompletedBy" datatype="html">
+        <source>Completed by</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="taskLabelStatus" datatype="html">
+        <source>Status</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="taskLabelSubmitBtn" datatype="html">
         <source>Save</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
-          <context context-type="linenumber">3</context>
+          <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
       <trans-unit id="taskLabelUpdateStatus" datatype="html">
         <source>Update status</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
-          <context context-type="linenumber">4</context>
+          <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="statusCompleted" datatype="html">
         <source>completed</source>
-        <target>completo</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="statusInProgress" datatype="html">
         <source>in progress</source>
-        <target>en progreso</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
-          <context context-type="linenumber">8</context>
+          <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="statusNotCompleted" datatype="html">
         <source>not completed</source>
-        <target>incompleto</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
-          <context context-type="linenumber">9</context>
+          <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
     </body>

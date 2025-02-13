@@ -1,5 +1,10 @@
 export const LabelsText = {
   task: {
+    commentsLabel: $localize`:@@taskLabelComments:Comments`,
+    completedBeforeLabel: $localize`:@@taskLabelCompletedBefore:Complete before`,
+    completedTimeLabel: $localize`:@@taskLabelCompletedTime:On`,
+    completedByLabel: $localize`:@@taskLabelCompletedBy:Completed by`,
+    statusLabel: $localize`:@@taskLabelStatus:Status`,
     submitBtn: $localize`:@@taskLabelSubmitBtn:Save`,
     updateStatus: $localize`:@@taskLabelUpdateStatus:Update status`,
   },

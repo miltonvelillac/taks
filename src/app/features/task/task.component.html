@@ -1,36 +1,51 @@
 <section class="task">
-    <p>{{ task().description }}</p>
-    <section>
+  <app-text>
+    <p [id]="ids.description()">{{ task().description }}</p>
+  </app-text>
+  <section>
+    <div>
+      <app-label [label]="labels.completedBeforeLabel" [id]="ids.completedBeforeLabel()" [forId]="ids.completedBefore()"></app-label>
       <app-text>
-        <p i18n>
-          Complete before:
-          <time [attr.datetime]="task().completedExpectedTime">{{task().completedExpectedTime | dateTime}}</time>
-        </p>
+        <time [id]="ids.completedBefore()" [attr.datetime]="task().completedExpectedTime">{{task().completedExpectedTime | dateTime}}</time>
       </app-text>
-      <app-text>
-        <span i18n>Status: {{ task().status | taskStatus }}</span>
-      </app-text>
-  
-      @if(task().completedBy) {
-      <app-text>
-        <div i18n>Completed by: {{task().completedBy}}</div>
-        <span i18n>On: </span><time [attr.datetime]="task().completedTime">{{task().completedTime | dateTime}}</time>
-      </app-text>
-      }
-    </section>
+    </div>
 
-    @if (task().comments) {
-      <section>
+    <div>
+      <app-label [label]="labels.statusLabel" [id]="ids.statusLabel()" [forId]="ids.status()"></app-label>
+      <app-text>
+        <span [id]="ids.status()">{{ task().status | taskStatus }}</span>
+      </app-text>
+    </div>
+
+    @if(task().completedBy) {
+
+      <div>
+        <app-label [id]="ids.completedByLabel()" [forId]="ids.completedBy()" [label]="labels.completedByLabel"></app-label>
+        <app-text [id]="ids.completedBy()">{{task().completedBy}}</app-text>
+      </div>
+
+      <div>
+        <app-label [id]="ids.completedTimeLabel()" [forId]="ids.completedTime()" [label]="labels.completedTimeLabel"></app-label>
         <app-text>
-          <p i18n>Comments: {{task().comments}}</p>
+          <time [id]="ids.completedTime()" [attr.datetime]="task().completedTime">{{task().completedTime | dateTime}}</time>
         </app-text>
-      </section>
+      </div>
     }
+  </section>
 
+  @if (task().comments) {
     <section>
-      <app-status-options [formField]="getFormControl(formNames.status)" ></app-status-options>
+      <app-label [id]="ids.commentsLabel()" [forId]="ids.comments()" [label]="labels.commentsLabel"></app-label>
+      <app-text>
+        <p [id]="ids.comments()">{{task().comments}}</p>
+      </app-text>
     </section>
-    <section>
-      <app-button [label]="labels.submitBtn" (click)="save()"></app-button>
-    </section>
+  }
+
+  <section>
+    <app-status-options [id]="ids.statusAction()" [formField]="getFormControl(formNames.status)" ></app-status-options>
+  </section>
+  <section>
+    <app-button [id]="ids.submitBtn()" [label]="labels.submitBtn" (click)="save()"></app-button>
+  </section>
   </section>

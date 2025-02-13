@@ -1,9 +1,11 @@
-import { ChangeDetectionStrategy, Component, effect, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject, Input, input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StatusOptionsComponent } from '@features/status-options/status-options.component';
 import { ButtonComponent } from '@shared/components/button/button.component';
+import { LabelComponent } from '@shared/components/label/label.component';
 import { TextComponent } from '@shared/components/text/text.component';
 import { TaskFormNamesEnum } from '@shared/enums/task-form-names.enum';
+import { IdsConstant } from '@shared/ids/ids.constants';
 import { TaskModel } from '@shared/models/task.model';
 import { DateTimeModule } from '@shared/pipes/date-time/date-time.module';
 import { TaskStatusPipe } from '@shared/pipes/task-status/task-status.pipe';
@@ -22,10 +24,11 @@ import { TasksStoreHandlerService } from '@store/tasks/handler/tasks-store-handl
     ButtonComponent,
     TextComponent,
     DateTimeModule,
-    StatusOptionsComponent
+    StatusOptionsComponent,
+    LabelComponent,
   ],
 })
-export class TaskComponent {
+export class TaskComponent implements OnInit {
   task = input.required<TaskModel>();
 
   tasksStoreHandlerService = inject(TasksStoreHandlerService);
@@ -34,6 +37,7 @@ export class TaskComponent {
 
   formNames = TaskFormNamesEnum;
   labels = LabelsText.task;
+  ids = IdsConstant.components.task();
 
   setFormValues$ = effect(() => {
     if(!this.form) return;
@@ -42,6 +46,12 @@ export class TaskComponent {
     const statusControl = this.getFormControl(TaskFormNamesEnum.status);
     statusControl.setValue(status);
   });
+
+  constructor() {}
+
+  ngOnInit(): void {
+    this.setIds();
+  }
 
   getFormControl(controlName: TaskFormNamesEnum): FormControl {
     return this.form.get(controlName) as FormControl;
@@ -60,11 +70,13 @@ export class TaskComponent {
     }
   }
 
-
-
   private createForm(): FormGroup {
     return this.fb.group({
       status: []
     });
+  }
+
+  private setIds(): void {
+    this.ids = IdsConstant.components.task(this.task().id);
   }
 }
