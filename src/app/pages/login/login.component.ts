@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { Auth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from '@angular/fire/auth';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmailBtnComponent } from '@shared/components/buttons/email-btn/email-btn.component';
@@ -11,6 +10,7 @@ import { LoginFormNamesEnum } from '@shared/enums/login-form-names.enum';
 import { IdsConstant } from '@shared/ids/ids.constants';
 import { LabelsText } from '@shared/text/labels.texts';
 import { InputNames } from '@shared/utils/names/input.names';
+import { UserSessionStoreHandlerService } from '@store/user/handler/user-session-store-handler.service';
 
 @Component({
   selector: 'app-login',
@@ -28,9 +28,8 @@ import { InputNames } from '@shared/utils/names/input.names';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
-  private auth = inject(Auth);
   private router = inject(Router);
-
+  private userSessionStoreHandlerService = inject(UserSessionStoreHandlerService);
   private fb = inject(FormBuilder);
 
   formNames = LoginFormNamesEnum;
@@ -45,6 +44,14 @@ export class LoginComponent {
 
   errorMessage = signal('');
 
+  user$ = this.userSessionStoreHandlerService.getUser$;
+
+  getusers = computed(() => {
+    const user = this.user$();
+    console.log('oeeeee', user)
+    return user;
+  })
+
   getFormField(formNames: LoginFormNamesEnum): FormControl {
     return this.form.get(formNames) as FormControl;
   }
@@ -55,8 +62,7 @@ export class LoginComponent {
     const password = this.form.get('password')?.value || '';
 
     try {
-      const result = await signInWithEmailAndPassword(this.auth, email, password);
-      console.log("Usuario autenticado:", result.user);
+      this.userSessionStoreHandlerService.loginByEmail({ email, password });
       this.router.navigate(['/tasks']);
     } catch (error) {
       console.error("Error de inicio de sesión:", error);
@@ -67,18 +73,11 @@ export class LoginComponent {
   async loginWithGoogle(): Promise<void> {
     this.errorMessage.set('');
     try {
-      const provider = new GoogleAuthProvider();
-      const result = await signInWithPopup(this.auth, provider);
-      console.log("Usuario autenticado:", result.user);
+      this.userSessionStoreHandlerService.loginGoogle();
       this.router.navigate(['/tasks']);
     } catch (error) {
       console.error("Error en Google Sign-In:", error);
       this.errorMessage.set('Error en Google Sigh-In');
     }
-  }
-
-  async logout() {
-    await signOut(this.auth);
-    this.router.navigate(['/login']);
   }
 }

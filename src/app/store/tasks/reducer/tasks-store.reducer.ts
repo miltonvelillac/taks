@@ -8,8 +8,8 @@ import {
 import { inject } from '@angular/core';
 import { TaskModel } from '@shared/models/task.model';
 import { TaskStoreSelectorsService } from '../selectors/tasks-store-selectors.service';
-import { TasksApiService } from '@shared/apis/tasks-api.service';
-import { TasksApiMapperService } from '@shared/mappers/apis/tasks-api-mapper.service';
+import { TasksApiService } from '@shared/apis/tasks/tasks-api.service';
+import { TasksApiMapperService } from '@shared/mappers/apis/tasks/tasks-api-mapper.service';
 
 type TasksState = {
   tasks: TaskModel[];

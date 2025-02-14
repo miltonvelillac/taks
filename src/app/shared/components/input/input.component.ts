@@ -24,7 +24,6 @@ export class InputComponent {
   placeholder = input('');
   label = input('');
   showClear = input(false);
-  disabled = input(false);
   readonly = input(false);
 
   clear(): void {
