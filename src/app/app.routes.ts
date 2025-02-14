@@ -1,15 +1,22 @@
 import { Routes } from '@angular/router';
 import { sessionGuard } from '@shared/guards/session/session.guard';
+import { RoutesUtils } from '@shared/utils/routes/routes.utils';
 
 export const routes: Routes = [
     {
-        path: 'tasks',
-        loadComponent: () => import('./pages/task-list-page/task-list-page.component').then(c => c.TaskListPageComponent),
-        canActivate: [sessionGuard]
+        path: '',
+        loadComponent: () => import('./pages/layout/layout.component').then(c => c.LayoutComponent),
+        canActivate: [sessionGuard],
+        children: [
+            {
+                path: RoutesUtils.tasks,
+                loadComponent: () => import('./pages/task-list-page/task-list-page.component').then(c => c.TaskListPageComponent)
+            },
+        ]
     },
     {
-        path: 'login',
+        path: RoutesUtils.login,
         loadComponent: () => import('./pages/login/login.component').then(c => c.LoginComponent)
     },
-    { path: '**',   redirectTo: 'tasks', pathMatch: 'full' },
+    { path: '**',   redirectTo: '', pathMatch: 'full' },
 ];

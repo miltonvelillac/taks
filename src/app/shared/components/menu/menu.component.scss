@@ -1,11 +1,13 @@
-:host {
+.menu {
+  margin: 0;
   padding: 1rem 2rem;
   background-color: var(--color-menu);
-}
-.menu {
-  margin: auto;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  max-width: 1500px;
+
+  &__content {
+    margin: auto;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1500px;
+  }
 }

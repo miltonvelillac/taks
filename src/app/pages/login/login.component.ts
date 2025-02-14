@@ -10,6 +10,7 @@ import { LoginFormNamesEnum } from '@shared/enums/login-form-names.enum';
 import { IdsConstant } from '@shared/ids/ids.constants';
 import { LabelsText } from '@shared/text/labels.texts';
 import { InputNames } from '@shared/utils/names/input.names';
+import { RoutesUtils } from '@shared/utils/routes/routes.utils';
 import { UserSessionStoreHandlerService } from '@store/user/handler/user-session-store-handler.service';
 
 @Component({
@@ -48,7 +49,6 @@ export class LoginComponent {
 
   getusers = computed(() => {
     const user = this.user$();
-    console.log('oeeeee', user)
     return user;
   })
 
@@ -62,8 +62,8 @@ export class LoginComponent {
     const password = this.form.get('password')?.value || '';
 
     try {
-      this.userSessionStoreHandlerService.loginByEmail({ email, password });
-      this.router.navigate(['/tasks']);
+      await this.userSessionStoreHandlerService.loginByEmail({ email, password });
+      this.router.navigate([`/${RoutesUtils.main}`]);
     } catch (error) {
       console.error("Error de inicio de sesión:", error);
       this.errorMessage.set('Error de inicio de sesión');
@@ -73,8 +73,8 @@ export class LoginComponent {
   async loginWithGoogle(): Promise<void> {
     this.errorMessage.set('');
     try {
-      this.userSessionStoreHandlerService.loginGoogle();
-      this.router.navigate(['/tasks']);
+      await this.userSessionStoreHandlerService.loginGoogle();
+      this.router.navigate([`/${RoutesUtils.main}`]);
     } catch (error) {
       console.error("Error en Google Sign-In:", error);
       this.errorMessage.set('Error en Google Sigh-In');

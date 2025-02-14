@@ -1,6 +1,8 @@
 <menu class="menu">
-  <button (click)="goToToday()">{{labels.today}}</button>
-  <section>
-    Profile
+  <section class="menu__content">
+    <button (click)="goToToday()">{{labels.today}}</button>
+    <section>
+      <button (click)="signOut()">signOut</button>
+    </section>
   </section>
 </menu>
