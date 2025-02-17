@@ -1,5 +1,6 @@
 export const RoutesUtils = {
   main: 'tasks',
   tasks: 'tasks',
-  login: 'login'
+  login: 'login',
+  signUp: 'sign-up'
 };

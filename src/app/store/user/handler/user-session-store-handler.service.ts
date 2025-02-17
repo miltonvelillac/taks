@@ -29,6 +29,10 @@ export class UserSessionStoreHandlerService {
     this.loadUser();
   }
 
+  async signUpByEmail(userLogin: UserLoginModel): Promise<void> {
+    await this.userSessionApiService.signUpByEmail(userLogin);
+  }
+
   async loginByEmail(userLogin: UserLoginModel): Promise<void> {
     await this.userSessionApiService.loginByEmail(userLogin);
   }

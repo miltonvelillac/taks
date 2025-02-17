@@ -18,5 +18,9 @@ export const routes: Routes = [
         path: RoutesUtils.login,
         loadComponent: () => import('./pages/login/login.component').then(c => c.LoginComponent)
     },
+    {
+        path: RoutesUtils.signUp,
+        loadComponent: () => import('./pages/sign-up/sign-up.component').then(c => c.SignUpComponent)
+    },
     { path: '**',   redirectTo: '', pathMatch: 'full' },
 ];

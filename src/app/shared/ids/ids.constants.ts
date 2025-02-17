@@ -22,6 +22,16 @@ export const IdsConstant = {
       passwordInput: (id = 'passwordLoginId') => `${id}${index}`,
       submitBtn: (id = 'submitBtnLoginId') => `${id}${index}`,
       googleBtn: (id = 'googleBtnLoginId') => `${id}${index}`,
+      signInBtn: (id = 'signInBtnLoginId') => `${id}${index}`,
+    }),
+    signIn: (index = '') => ({
+      errorMessae: (id = 'errorMessageLoginId') => `${id}${index}`,
+      userInput: (id = 'userLoginId') => `${id}${index}`,
+      passwordInput: (id = 'passwordLoginId') => `${id}${index}`,
+      repeatPasswordInput: (id = 'repeatPasswordLoginId') => `${id}${index}`,
+      submitBtn: (id = 'submitBtnLoginId') => `${id}${index}`,
+      googleBtn: (id = 'googleBtnLoginId') => `${id}${index}`,
+      loginInBtn: (id = 'loginBtnLoginId') => `${id}${index}`,
     })
   },
 }

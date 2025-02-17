@@ -30,7 +30,3 @@
   display: flex;
   justify-content: flex-end;
 }
-
-:host ::ng-deep .mdc-text-field--outlined .mat-mdc-form-field-infix, .mdc-text-field--no-label .mat-mdc-form-field-infix {
-  padding: 0 !important;
-}
