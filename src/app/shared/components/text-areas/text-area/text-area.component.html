@@ -1,0 +1,13 @@
+<mat-form-field class="form-field">
+  @if(label()) { <mat-label>{{label()}}</mat-label> }
+  <textarea matInput
+    cdkTextareaAutosize
+    #autosize="cdkTextareaAutosize"
+    [formControl]="formField()"
+    [id]="id()"
+    [name]="name()"
+    [cdkAutosizeMinRows]="minRows()"
+    [cdkAutosizeMaxRows]="maxRow()"
+    [cdkTextareaAutosize]="autoSize()"
+    ></textarea>
+</mat-form-field>

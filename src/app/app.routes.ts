@@ -12,6 +12,10 @@ export const routes: Routes = [
                 path: RoutesUtils.tasks,
                 loadComponent: () => import('./pages/task-list-page/task-list-page.component').then(c => c.TaskListPageComponent)
             },
+            {
+                path: RoutesUtils.addTasks,
+                loadComponent: () => import('./pages/add-task/add-task.component').then(c => c.AddTaskComponent)
+            },
         ]
     },
     {

@@ -5,8 +5,22 @@ export interface TaskModel {
   title: string;
   description: string;
   status: StatusTaskEnum;
-  completedExpectedTime: number;
-  completedBy: string;
+  expectedStartDate: number;
+  expectedEndDate: number;
   completedTime: number;
   comments: string;
+  createdBy: {
+    uid: string;
+  };
+  completedBy: {
+    uid: string;
+    date: number;
+  };
+  updateddBy: [
+    {
+      uid: string;
+      date: number;
+      status: StatusTaskEnum;
+    }
+  ];
 }

@@ -1,0 +1,51 @@
+  <section class="container">
+    <app-title [title]="labels.titleSectionLabel" titleType="h1"/>
+    <form [formGroup]="form" class="form">
+    <app-input
+      class="form__field"
+      [formField]="getFormField(formNames.title)"
+      [label]="labels.titleLabel"
+      [id]="ids.titleBtn()"
+      [name]="names.title"
+      type="text"
+    ></app-input>
+    <app-date-range
+      class="form__field"
+      [startFormField]="getFormField(formNames.completedStartDate)"
+      [endFormField]="getFormField(formNames.completedEndDate)"
+      [id]="ids.completedDate()"
+      [label]="labels.completedExpectedDateLabel"
+      [name]="names.date"
+      [placeholerStartDate]="labels.completedStatDateLabel"
+      [placeholerEndDate]="labels.completedEndDateLabel"
+    />
+    <section class="form__time">
+      <app-time
+        [formField]="getFormField(formNames.completedStartTime)"
+        [id]="ids.completedStartTime()"
+        [name]="names.time"
+        [label]="labels.completedStatTimeLabel"
+      />
+      <app-time
+        [formField]="getFormField(formNames.completedEndTime)"
+        [id]="ids.completedEndTime()"
+        [name]="names.time"
+        [label]="labels.completedEndTimeLabel"
+      />
+    </section>
+    <app-text-area
+      class="form__field"
+      [formField]="getFormField(formNames.description)"
+      [label]="labels.descriptionLabel"
+      [id]="ids.description()"
+      [name]="names.description"
+      [minRows]="5"
+      [maxRow]="8"
+    />
+    <app-button
+      [id]="ids.submitBtn()"
+      [label]="labels.submitBtn"
+      (click)="submit()"
+    />
+  </form>
+  </section>
