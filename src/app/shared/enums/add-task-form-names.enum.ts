@@ -9,4 +9,5 @@ export enum AddTaskFormNamesEnum {
   completedBy = 'completedBy',
   completedTime = 'completedTime',
   comments = 'comments',
+  collaboratorsEmail = 'collaboratorsEmail',
 }

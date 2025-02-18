@@ -21,6 +21,14 @@ export class MenuComponent {
     
   }
 
+  goToTasks(): void {
+    this.router.navigate([`/${RoutesUtils.tasks}`]);
+  }
+
+  goToAddTask(): void {
+    this.router.navigate([`/${RoutesUtils.addTasks}`]);
+  }
+
   async signOut(): Promise<void> {
     try {
       await this.userSessionStoreHandlerService.signOut();

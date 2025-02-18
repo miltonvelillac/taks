@@ -42,6 +42,13 @@
       [minRows]="5"
       [maxRow]="8"
     />
+    <app-chip-grid
+      class="form__field"
+      [formField]="getFormField(formNames.collaboratorsEmail)"
+      [id]="ids.collaboratorsEmail()"
+      [label]="labels.collaboratorsEmail"
+      [name]="names.email"
+    />
     <app-button
       [id]="ids.submitBtn()"
       [label]="labels.submitBtn"

@@ -11,10 +11,20 @@
 
   &__item {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.2rem;
 
     &--col {
       flex-direction: column;
+    }
+
+    &--list {
+      &::after {
+        content: ", ";
+      }
+      &:last-child::after {
+        content: "";
+      }
     }
   }
 }

@@ -67,21 +67,12 @@ export const TasksStore = signalStore(
       });
     },
 
-    async update(task: TaskModel): Promise<void> {
+    async update(task: Partial<TaskModel>): Promise<void> {
       patchState(store, { isLoading: true });
       const taskToApi = tasksApiMapperService.getTaskToUpdateApi(task);
-      const addedTask = await tasksApiService.update(taskToApi);
-
-      const tasks = store.tasks();
-      const updatedTasks = tasks.map(t => {
-        if (t.id === taskToApi.id) {
-          return task;
-        }
-        return t;
-      })
+      await tasksApiService.update(taskToApi);
 
       patchState(store, {
-        tasks: updatedTasks as any,
         isLoading: false,
       });
     },

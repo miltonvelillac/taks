@@ -1,6 +1,9 @@
 export const IdsConstant = {
   components: {
     task: (index = '') => ({
+      addComments: (id = `addCommentsTaskId`) => `${id}${index}`,
+      collaboratorsLabel: (id = `collaboratorsLabelTaskId`) => `${id}${index}`,
+      collaborators: (id = `collaboratorsTaskId`) => `${id}${index}`,
       commentsLabel: (id = 'commentsLabelTaskId') =>`${id}${index}`,
       comments: (id = `commentsTaskId`) => `${id}${index}`,
       completedBefore: (id = `completedBeforeTaskId`) => `${id}${index}`,
@@ -17,6 +20,7 @@ export const IdsConstant = {
       updateStatus: (id = `updateStatusTaskId`) => `${id}${index}`,
     }),
     addTask: (index = '') => ({
+      collaboratorsEmail: (id = 'collaboratorsEmailAddTaskId') =>`${id}${index}`,
       commentsLabel: (id = 'commentsLabelAddTaskId') =>`${id}${index}`,
       comments: (id = `commentsAddTaskId`) => `${id}${index}`,
       completedBefore: (id = `completedBeforeAddTaskId`) => `${id}${index}`,

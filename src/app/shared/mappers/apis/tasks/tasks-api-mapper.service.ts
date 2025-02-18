@@ -20,6 +20,7 @@ export class TasksApiMapperService {
         expectedStartDate: task.expectedStartDate,
         title: task.title,
         status: task.status,
+        comments: task.comments
       } as TaskModel)
     );
   }
@@ -27,13 +28,14 @@ export class TasksApiMapperService {
   getTaskToSaveApi(task: AddTaskModel): Partial<TaskModel> {
     const expectedStartDate = DateUtils.getDateTime({date: task.completedStartDate, time: task.completedStartTime});
     const expectedEndDate = DateUtils.getDateTime({date: task.completedEndDate, time: task.completedEndTime});
+    const collaborators = task.collaboratorsEmail.map(email => ({ email }));
 
     return {
       title: task.title,
       description: task.description,
       expectedStartDate,
       expectedEndDate,
-      collaborators: task.collaborators,
+      collaborators,
       createdBy: {
         user: {
           uid: task.createdBy.user.uid,
@@ -44,7 +46,11 @@ export class TasksApiMapperService {
     };
   }
 
-  getTaskToUpdateApi(task: TaskModel): Partial<TaskModel> {
-    return task;
+  getTaskToUpdateApi(task: Partial<TaskModel>): Partial<TaskModel> {
+    return {
+      id: task.id,
+      status: task.status,
+      comments: task.comments,
+    };
   }
 }

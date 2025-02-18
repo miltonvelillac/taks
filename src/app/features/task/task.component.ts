@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule }
 import { StatusOptionsComponent } from '@features/status-options/status-options.component';
 import { ButtonComponent } from '@shared/components/buttons/button/button.component';
 import { LabelComponent } from '@shared/components/label/label.component';
+import { TextAreaComponent } from '@shared/components/text-areas/text-area/text-area.component';
 import { TextComponent } from '@shared/components/text/text.component';
 import { TaskFormNamesEnum } from '@shared/enums/task-form-names.enum';
 import { IdsConstant } from '@shared/ids/ids.constants';
@@ -26,6 +27,7 @@ import { TasksStoreHandlerService } from '@store/tasks/handler/tasks-store-handl
     DateTimeModule,
     StatusOptionsComponent,
     LabelComponent,
+    TextAreaComponent,
   ],
 })
 export class TaskComponent implements OnInit {
@@ -60,11 +62,16 @@ export class TaskComponent implements OnInit {
   async save(): Promise<void> {
     if(!this.form.valid) return;
     const statusControl = this.getFormControl(this.formNames.status);
-    const task: TaskModel = {...this.task(), status: statusControl.value};
+    const commentControl = this.getFormControl(this.formNames.comments);
+    const task: Partial<TaskModel> = {
+      ...this.task(),
+      status: statusControl.value,
+      comments: commentControl.value
+    };
 
     try {
       await this.tasksStoreHandlerService.updateTask(task);
-      // this.tasksStoreHandlerService.loadAll();
+      this.tasksStoreHandlerService.loadAll();
     } catch (error) {
       
     }
@@ -72,7 +79,8 @@ export class TaskComponent implements OnInit {
 
   private createForm(): FormGroup {
     return this.fb.group({
-      status: []
+      [TaskFormNamesEnum.status]: [],
+      [TaskFormNamesEnum.comments]: [],
     });
   }
 

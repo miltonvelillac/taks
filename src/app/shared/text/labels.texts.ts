@@ -1,6 +1,8 @@
 export const LabelsText = {
   task: {
     commentsLabel: $localize`:@@taskLabelComments:Comments`,
+    addCommentsLabel: $localize`:@@taskLabelAddCommentsLabel:Add comments`,
+    collaboratorsLabel: $localize`:@@taskLabelCollaborators:Collaborators`,
     completedBeforeLabel: $localize`:@@taskLabelCompletedBefore:Complete before`,
     completedTimeLabel: $localize`:@@taskLabelCompletedTime:On`,
     completedByLabel: $localize`:@@taskLabelCompletedBy:Completed by`,
@@ -20,6 +22,7 @@ export const LabelsText = {
     completedEndTimeLabel: $localize`:@@addTaskLabelCompletedEndTime:To`,
     completedTimeLabel: $localize`:@@addTaskLabelCompletedTime:On`,
     completedByLabel: $localize`:@@addTaskLabelCompletedBy:Completed by`,
+    collaboratorsEmail: $localize`:@@addTaskLabelCollaboratorsEmail:Collaborators' Email`,
     statusLabel: $localize`:@@addTaskLabelStatus:Status`,
     submitBtn: $localize`:@@addTaskLabelSubmitBtn:Save`,
     updateStatus: $localize`:@@addTaskLabelUpdateStatus:Update status`,
@@ -31,6 +34,8 @@ export const LabelsText = {
   },
   menu: {
     today: $localize`:@@menuToday:Today`,
+    tasks: $localize`:@@menuTasks:Tasks`,
+    addTask: $localize`:@@menuAddTask:Add Task`,
   },
   login: {
     actionsBtns: $localize`:@@loginActionBtns:or`,

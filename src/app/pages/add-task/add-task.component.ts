@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '@shared/components/buttons/button/button.component';
+import { ChipGridComponent } from '@shared/components/chips/chip-grid/chip-grid.component';
 import { DateRangeComponent } from '@shared/components/dates/date-range/date-range.component';
 import { InputComponent } from '@shared/components/input/input.component';
 import { TextAreaComponent } from '@shared/components/text-areas/text-area/text-area.component';
@@ -24,6 +25,7 @@ import { TasksStoreHandlerService } from '@store/tasks/handler/tasks-store-handl
     TimeComponent,
     TitleComponent,
     ButtonComponent,
+    ChipGridComponent,
   ],
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.scss',
@@ -45,7 +47,7 @@ export class AddTaskComponent {
   }
 
   submit(): void {
-    if(!this.form.valid) return;
+    if (!this.form.valid) return;
 
     const task = this.form.getRawValue() as AddTaskModel;
     this.tasksStoreHandlerService.addTask(task);
@@ -76,6 +78,9 @@ export class AddTaskComponent {
       [AddTaskFormNamesEnum.completedEndTime]: [
         null,
         [Validators.required]
+      ],
+      [AddTaskFormNamesEnum.collaboratorsEmail]: [
+        null,
       ],
     });
   }

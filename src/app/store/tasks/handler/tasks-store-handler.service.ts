@@ -28,12 +28,12 @@ export class TasksStoreHandlerService {
   async addTask(book: AddTaskModel): Promise<void> {
     const user = this.user.getUser$();
     const createdBy: ActionInfoModel = { user: { uid: user?.uid, email: user?.email || '' } };
-    const collaborators: UserModel[] = [{ email: user?.email || '' }];
+    const collaboratorsEmail: string[] = [ user?.email || '', ...book.collaboratorsEmail ];
 
-    await this.store.add({ ...book, status: StatusTaskEnum.notcompleted, createdBy, collaborators });
+    await this.store.add({ ...book, status: StatusTaskEnum.notcompleted, createdBy, collaboratorsEmail });
   }
 
-  async updateTask(book: TaskModel): Promise<void> {
+  async updateTask(book: Partial<TaskModel>): Promise<void> {
     await this.store.update(book);
   }
 
