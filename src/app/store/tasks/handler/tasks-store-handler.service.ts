@@ -5,6 +5,7 @@ import { UserSessionStoreHandlerService } from '@store/user/handler/user-session
 import { TasksStore } from '../reducer/tasks-store.reducer';
 import { ActionInfoModel } from '@shared/models/action-info.model';
 import { UserModel } from '@shared/models/user.model';
+import { StatusTaskEnum } from '@shared/enums/status-task.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,9 @@ export class TasksStoreHandlerService {
   async loadAll(): Promise<TaskModel[]> {
     // The state of the `BooksStore` is unprotected from external modifications.
     // patchState(this.store, ({ books }) => ({ books: [...books, book] }));
+    const loggedUser = this.user.getUser$();
 
-    await this.store.loadAll();
+    await this.store.loadAll({ loggedUser });
     return this.store.tasks();
   }
 
@@ -28,7 +30,7 @@ export class TasksStoreHandlerService {
     const createdBy: ActionInfoModel = { user: { uid: user?.uid, email: user?.email || '' } };
     const collaborators: UserModel[] = [{ email: user?.email || '' }];
 
-    await this.store.add({ ...book, createdBy, collaborators });
+    await this.store.add({ ...book, status: StatusTaskEnum.notcompleted, createdBy, collaborators });
   }
 
   async updateTask(book: TaskModel): Promise<void> {

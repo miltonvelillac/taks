@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
-import { addDoc, collection, Firestore } from '@angular/fire/firestore';
+import { addDoc, collection, Firestore, getDocs, query, where } from '@angular/fire/firestore';
 import { TaskModel } from '@shared/models/task.model';
+import { UserSessionModel } from '@shared/models/user-session.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,10 @@ export class TasksApiService {
 
   constructor() { }
 
-  async getAll(): Promise<void> {
-
+  async getAll(params: {loggedUser: UserSessionModel | null}): Promise<any[]> {
+    const tasksQuery = query(this.taskCollection, where('collaborators', 'array-contains', { email: params.loggedUser?.email || '' }));
+    const querySnapshot = await getDocs(tasksQuery);
+    return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
   }
 
   async add(task: Partial<TaskModel>): Promise<TaskModel> {

@@ -1,3 +1,4 @@
+import { StatusTaskEnum } from "@shared/enums/status-task.enum";
 import { ActionInfoModel } from "./action-info.model";
 import { UserModel } from "./user.model";
 
@@ -6,8 +7,9 @@ export interface AddTaskModel {
   completedEndTime: Date;
   completedStartDate: Date;
   completedStartTime: Date;
-  description: string;
-  title: string;
   createdBy: ActionInfoModel;
   collaborators: UserModel[];
+  description: string;
+  title: string;
+  status: StatusTaskEnum;
 }

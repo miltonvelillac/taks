@@ -93,8 +93,6 @@ export class SignUpComponent {
   }
 
   private handleInvalidForm(): void {
-    console.log(this.form.errors, this.form.get(this.formNames.user)?.errors)
-    
     const errorMessage = (this.form.errors as any)?.message;
     let errMessage = (this.form.get(this.formNames.user)?.errors as any)?.email ? 'Invalid email address' : undefined;
     errorMessage || errMessage && this.errorMessage.set(errorMessage || errMessage);

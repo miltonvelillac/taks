@@ -11,6 +11,7 @@ import { TasksApiMapperService } from '@shared/mappers/apis/tasks/tasks-api-mapp
 import { AddTaskModel } from '@shared/models/add-task.model';
 import { TaskModel } from '@shared/models/task.model';
 import { TaskStoreSelectorsService } from '../selectors/tasks-store-selectors.service';
+import { UserSessionModel } from '@shared/models/user-session.model';
 
 type TasksState = {
   tasks: TaskModel[];
@@ -47,10 +48,10 @@ export const TasksStore = signalStore(
       patchState(store, (state) => ({ filter: { ...state.filter, order } }));
     },
 
-    async loadAll(): Promise<void> {
+    async loadAll(params: {loggedUser: UserSessionModel | null}): Promise<void> {
       patchState(store, { isLoading: true });
 
-      const tasksFromApi = await tasksApiService.getAll();
+      const tasksFromApi = await tasksApiService.getAll({ loggedUser: params.loggedUser });
       const tasks = tasksApiMapperService.getAllTasksFromApi(tasksFromApi);
       patchState(store, { tasks, isLoading: false });
     },
