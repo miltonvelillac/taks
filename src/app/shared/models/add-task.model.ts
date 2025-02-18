@@ -1,3 +1,6 @@
+import { ActionInfoModel } from "./action-info.model";
+import { UserModel } from "./user.model";
+
 export interface AddTaskModel {
   completedEndDate: Date;
   completedEndTime: Date;
@@ -5,7 +8,6 @@ export interface AddTaskModel {
   completedStartTime: Date;
   description: string;
   title: string;
-  createdBy: {
-    uid: string
-  };
+  createdBy: ActionInfoModel;
+  collaborators: UserModel[];
 }

@@ -6,10 +6,10 @@
     <div class="task__item">
       <app-label [label]="labels.completedBeforeLabel" [id]="ids.completedBeforeLabel()" [forId]="ids.completedBefore()"></app-label>
       <app-text>
-        <time [id]="ids.completedBefore()" [attr.datetime]="task().completedExpectedStartDate">{{task().completedExpectedStartDate | dateTime}}</time>
+        <time [id]="ids.completedBefore()" [attr.datetime]="task().expectedStartDate">{{task().expectedStartDate | dateTime}}</time>
       </app-text>
       <app-text>
-        <time [id]="ids.completedBefore()" [attr.datetime]="task().completedExpectedEndDate">{{task().completedExpectedEndDate | dateTime}}</time>
+        <time [id]="ids.completedBefore()" [attr.datetime]="task().expectedEndDate">{{task().expectedEndDate | dateTime}}</time>
       </app-text>
     </div>
 
