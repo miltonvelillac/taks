@@ -14,5 +14,5 @@ export interface TaskModel {
   createdBy: ActionInfoModel;
   collaborators: UserModel[];
   completedBy: ActionInfoModel;
-  updateddBy: ActionInfoModel[];
+  updatedBy: ActionInfoModel[];
 }

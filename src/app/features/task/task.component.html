@@ -35,17 +35,6 @@
     }
   </section>
 
-  @if (task().comments) {
-    <section class="task__section">
-      <div class="task__item--col">
-        <app-label [id]="ids.commentsLabel()" [forId]="ids.comments()" [label]="labels.commentsLabel"></app-label>
-        <app-text>
-          <p [id]="ids.comments()">{{task().comments}}</p>
-        </app-text>
-      </div>
-    </section>
-  }
-
   @if (task().collaborators.length > 0) {
     <section class="task__section">
       <div class="task__item--col">

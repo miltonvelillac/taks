@@ -45,8 +45,13 @@ export class TaskComponent implements OnInit {
     if(!this.form) return;
 
     const status = this.task().status;
+    const comments = this.task().comments;
+    
     const statusControl = this.getFormControl(TaskFormNamesEnum.status);
+    const commentstrol = this.getFormControl(TaskFormNamesEnum.comments);
+
     statusControl.setValue(status);
+    commentstrol.setValue(comments);
   });
 
   constructor() {}

@@ -6,6 +6,7 @@ import { TasksStore } from '../reducer/tasks-store.reducer';
 import { ActionInfoModel } from '@shared/models/action-info.model';
 import { UserModel } from '@shared/models/user.model';
 import { StatusTaskEnum } from '@shared/enums/status-task.enum';
+import { TasksApiMapperService } from '@shared/mappers/apis/tasks/tasks-api-mapper.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ import { StatusTaskEnum } from '@shared/enums/status-task.enum';
 export class TasksStoreHandlerService {
   readonly store = inject(TasksStore);
   readonly user = inject(UserSessionStoreHandlerService);
+  private tasksApiMapperService = inject(TasksApiMapperService);
 
   constructor() { }
 
@@ -25,16 +27,18 @@ export class TasksStoreHandlerService {
     return this.store.tasks();
   }
 
-  async addTask(book: AddTaskModel): Promise<void> {
+  async addTask(task: AddTaskModel): Promise<void> {
     const user = this.user.getUser$();
-    const createdBy: ActionInfoModel = { user: { uid: user?.uid, email: user?.email || '' } };
-    const collaboratorsEmail: string[] = [ user?.email || '', ...book.collaboratorsEmail ];
+    const taskToApi = this.tasksApiMapperService.getTaskToSaveApi({ task, user });
 
-    await this.store.add({ ...book, status: StatusTaskEnum.notcompleted, createdBy, collaboratorsEmail });
+    await this.store.add(taskToApi);
   }
 
-  async updateTask(book: Partial<TaskModel>): Promise<void> {
-    await this.store.update(book);
+  async updateTask(task: Partial<TaskModel>): Promise<void> {
+    const user = this.user.getUser$();
+
+    const taskToUpdate = this.tasksApiMapperService.getTaskToUpdateApi({ task, user });
+    await this.store.update(taskToUpdate);
   }
 
   getTasks(): TaskModel[] {

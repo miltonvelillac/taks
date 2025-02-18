@@ -8,10 +8,9 @@ import {
 } from '@ngrx/signals';
 import { TasksApiService } from '@shared/apis/tasks/tasks-api.service';
 import { TasksApiMapperService } from '@shared/mappers/apis/tasks/tasks-api-mapper.service';
-import { AddTaskModel } from '@shared/models/add-task.model';
 import { TaskModel } from '@shared/models/task.model';
-import { TaskStoreSelectorsService } from '../selectors/tasks-store-selectors.service';
 import { UserSessionModel } from '@shared/models/user-session.model';
+import { TaskStoreSelectorsService } from '../selectors/tasks-store-selectors.service';
 
 type TasksState = {
   tasks: TaskModel[];
@@ -56,10 +55,9 @@ export const TasksStore = signalStore(
       patchState(store, { tasks, isLoading: false });
     },
 
-    async add(task: AddTaskModel): Promise<void> {
+    async add(task: Partial<TaskModel>): Promise<void> {
       patchState(store, { isLoading: true });
-      const taskToApi = tasksApiMapperService.getTaskToSaveApi(task);
-      const addedTask = await tasksApiService.add(taskToApi);
+      const addedTask = await tasksApiService.add(task);
 
       patchState(store, {
         tasks: [...store.tasks(), addedTask],
@@ -69,8 +67,7 @@ export const TasksStore = signalStore(
 
     async update(task: Partial<TaskModel>): Promise<void> {
       patchState(store, { isLoading: true });
-      const taskToApi = tasksApiMapperService.getTaskToUpdateApi(task);
-      await tasksApiService.update(taskToApi);
+      await tasksApiService.update(task);
 
       patchState(store, {
         isLoading: false,
