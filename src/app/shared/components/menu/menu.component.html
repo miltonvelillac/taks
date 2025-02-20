@@ -1,12 +1,29 @@
-<menu class="menu">
-  <section class="menu__content">
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>{{labels.title}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
     <section class="menu__items">
-      <button (click)="goToToday()">{{labels.today}}</button>
-      <button (click)="goToTasks()">{{labels.tasks}}</button>
-      <button (click)="goToAddTask()">{{labels.addTask}}</button>
+      <app-button [label]="labels.tasks" color="light" (click)="goToTasks()"/>
+      <app-button [label]="labels.addTask" color="light" (click)="goToAddTask()"/>
     </section>
-    <section>
-      <button (click)="signOut()">signOut</button>
-    </section>
-  </section>
-</menu>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <div class="menu__header">
+        <ion-title>{{labels.title}}</ion-title>
+        <app-button [label]="'user'" color="light" (click)="openUser()"/>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ng-content select="[mainContent]"></ng-content>
+  </ion-content>
+</div>

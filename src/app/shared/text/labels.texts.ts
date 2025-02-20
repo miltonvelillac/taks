@@ -34,9 +34,10 @@ export const LabelsText = {
     notCompleted: $localize`:@@statusNotCompleted:not completed`,
   },
   menu: {
-    today: $localize`:@@menuToday:Today`,
-    tasks: $localize`:@@menuTasks:Tasks`,
     addTask: $localize`:@@menuAddTask:Add Task`,
+    tasks: $localize`:@@menuTasks:Tasks`,
+    title: $localize`:@@menuTitle:Tasks`,
+    user: $localize`:@@menuUser:User`,
   },
   login: {
     actionsBtns: $localize`:@@loginActionBtns:or`,

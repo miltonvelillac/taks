@@ -1,7 +1,6 @@
 .container {
   max-width: 500px;
   margin: auto;
-  padding-top: 2rem;
 }
 
 .form {
@@ -11,6 +10,7 @@
 
   &__time {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
   }
 }

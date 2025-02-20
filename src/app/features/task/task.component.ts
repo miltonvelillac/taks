@@ -77,7 +77,6 @@ export class TaskComponent implements OnInit {
   }
 
   getCollaboratorsEmail(): string[] {
-    console.log(this.task().collaborators?.map(coll => coll.email))
     const collaboratorsControl = this.getFormControl(TaskFormNamesEnum.collaborators);
     return collaboratorsControl.value || [];
   }

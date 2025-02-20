@@ -1,4 +1,9 @@
-<button [id]="id()" i18n>
+<ion-button
+  class="button"
+  [id]="id()"
+  [fill]="fill()"
+  [color]="color()"
+>
   {{label()}}
   @if (icon()) {<app-icon [icon]="icon()" />}
-</button>
+</ion-button>

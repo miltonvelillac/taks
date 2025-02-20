@@ -2,13 +2,6 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="6109782390422892906" datatype="html">
-        <source> <x id="INTERPOLATION" equiv-text="{{label()}}"/> <x id="START_BLOCK_IF" equiv-text="@if (icon()) {"/><x id="START_TAG_APP_ICON" ctype="x-app_icon" equiv-text="&lt;app-icon [icon]=&quot;icon()&quot; /&gt;"/><x id="CLOSE_TAG_APP_ICON" ctype="x-app_icon" equiv-text="&lt;app-icon [icon]=&quot;icon()&quot; /&gt;"/><x id="CLOSE_BLOCK_IF" equiv-text="}"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/components/buttons/button/button.component.html</context>
-          <context context-type="linenumber">2,5</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="taskLabelComments" datatype="html">
         <source>Comments</source>
         <context-group purpose="location">
@@ -205,8 +198,8 @@
           <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="menuToday" datatype="html">
-        <source>Today</source>
+      <trans-unit id="menuAddTask" datatype="html">
+        <source>Add Task</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
           <context context-type="linenumber">37</context>
@@ -219,26 +212,22 @@
           <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="menuAddTask" datatype="html">
-        <source>Add Task</source>
+      <trans-unit id="menuTitle" datatype="html">
+        <source>Tasks</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
           <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="loginActionBtns" datatype="html">
-        <source>or</source>
+      <trans-unit id="menuUser" datatype="html">
+        <source>User</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
-          <context context-type="linenumber">42</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
-          <context context-type="linenumber">51</context>
+          <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="signInBtns" datatype="html">
-        <source>Sign up</source>
+      <trans-unit id="loginActionBtns" datatype="html">
+        <source>or</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
           <context context-type="linenumber">43</context>
@@ -248,8 +237,8 @@
           <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="loginGoogleBtn" datatype="html">
-        <source>Sign in with Google</source>
+      <trans-unit id="signInBtns" datatype="html">
+        <source>Sign up</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
           <context context-type="linenumber">44</context>
@@ -259,8 +248,8 @@
           <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="loginSubmitBtn" datatype="html">
-        <source>Sign in</source>
+      <trans-unit id="loginGoogleBtn" datatype="html">
+        <source>Sign in with Google</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
           <context context-type="linenumber">45</context>
@@ -270,8 +259,8 @@
           <context context-type="linenumber">54</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="loginUserInput" datatype="html">
-        <source>Enter your email</source>
+      <trans-unit id="loginSubmitBtn" datatype="html">
+        <source>Sign in</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
           <context context-type="linenumber">46</context>
@@ -281,30 +270,41 @@
           <context context-type="linenumber">55</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="loginPasswordInput" datatype="html">
-        <source>Enter your password</source>
+      <trans-unit id="loginUserInput" datatype="html">
+        <source>Enter your email</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
           <context context-type="linenumber">47</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loginPasswordInput" datatype="html">
+        <source>Enter your password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
           <context context-type="linenumber">48</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">49</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
           <context context-type="linenumber">57</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
+          <context context-type="linenumber">58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="validatorsPasswordRepeat" datatype="html">
         <source>Passwords are not the same</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
-          <context context-type="linenumber">61</context>
+          <context context-type="linenumber">62</context>
         </context-group>
       </trans-unit>
     </body>

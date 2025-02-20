@@ -11,7 +11,7 @@ export const sessionGuard: CanActivateFn = async (route, state) => {
     await new Promise((resolve) => setTimeout(resolve, 100));
     attempts++;
   }
-  console.log(userSessionStoreHandlerService.getUser$())
+
   if (!userSessionStoreHandlerService.getUser$()) {
     router.navigate(['/login']);
     return false;

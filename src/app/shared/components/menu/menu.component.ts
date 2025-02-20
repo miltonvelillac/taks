@@ -1,25 +1,40 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import {
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonMenu,
+  IonMenuButton,
+  IonTitle,
+  IonToolbar
+} from '@ionic/angular/standalone';
 import { LabelsText } from '@shared/text/labels.texts';
 import { RoutesUtils } from '@shared/utils/routes/routes.utils';
-import { UserSessionStoreHandlerService } from '@store/user/handler/user-session-store-handler.service';
+import { ButtonComponent } from '../buttons/button/button.component';
+import { UserSessionModalService } from '../modals/user-session-modal/service/user-session-modal.service';
 
 @Component({
   selector: 'app-menu',
-  imports: [],
+  imports: [
+    IonButtons,
+    IonContent,
+    IonHeader,
+    IonMenu,
+    IonMenuButton,
+    IonTitle,
+    IonToolbar,
+    ButtonComponent,
+  ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuComponent {
   private router = inject(Router);
-  private userSessionStoreHandlerService = inject(UserSessionStoreHandlerService);
-  
-  labels = LabelsText.menu;
+  private userSessionModalService = inject(UserSessionModalService);
 
-  goToToday(): void {
-    
-  }
+  labels = LabelsText.menu;
 
   goToTasks(): void {
     this.router.navigate([`/${RoutesUtils.tasks}`]);
@@ -29,12 +44,7 @@ export class MenuComponent {
     this.router.navigate([`/${RoutesUtils.addTasks}`]);
   }
 
-  async signOut(): Promise<void> {
-    try {
-      await this.userSessionStoreHandlerService.signOut();
-      this.router.navigate([`/${RoutesUtils.login}`]);
-    } catch (error) {
-      console.error(error);
-    }
+  async openUser(): Promise<void> {
+    this.userSessionModalService.open();
   }
 }
