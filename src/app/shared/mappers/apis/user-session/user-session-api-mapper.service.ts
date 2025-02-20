@@ -9,7 +9,8 @@ export class UserSessionApiMapperService {
 
   constructor() { }
 
-  getUser(userFromApi: User | null): UserSessionModel {
+  getUser(userFromApi: User | null): UserSessionModel | null {
+    if (!userFromApi) return null;
     return {
       displayName: userFromApi?.displayName || '',
       email: userFromApi?.email || '',
