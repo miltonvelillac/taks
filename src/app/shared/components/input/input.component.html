@@ -1,17 +1,16 @@
-<mat-form-field class="field">
-  @if (label()) {
-    <mat-label>{{label()}}</mat-label>
+<ion-input
+  [formControl]="formField()"
+  [id]="id()"
+  [type]="type()"
+  [name]="name()"
+  [label]="label()"
+  [placeholder]="placeholder()"
+  [readonly]="readonly()"
+  [clearInput]="showClearBtn()"
+  [fill]="fill()"
+  [attr.label-placement]="labelPlacement()"
+>
+  @if(type() === 'password') {
+    <ion-input-password-toggle slot="end"></ion-input-password-toggle>
   }
-  <span class="field__content">
-    <input
-      matInput
-      [id]="id()"
-      [name]="name()"
-      [placeholder]="placeholder()"
-      [type]="type()"
-      [readonly]="readonly()"
-      [formControl]="formField()"
-    />
-    @if (showClearBtn()) {<app-icon-button icon="close" (click)="clear()"/>}
-  </span>
-</mat-form-field>
+</ion-input>

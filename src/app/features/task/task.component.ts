@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, effect, inject, Input, input, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { StatusOptionsComponent } from '@features/status-options/status-options.component';
 import { ButtonComponent } from '@shared/components/buttons/button/button.component';
 import { ChipGridComponent } from '@shared/components/chips/chip-grid/chip-grid.component';
@@ -14,6 +14,7 @@ import { DateTimeModule } from '@shared/pipes/date-time/date-time.module';
 import { TaskStatusPipe } from '@shared/pipes/task-status/task-status.pipe';
 import { LabelsText } from '@shared/text/labels.texts';
 import { InputNames } from '@shared/utils/names/input.names';
+import { TaskRules } from '@shared/utils/rules/task.rules';
 import { TasksStoreHandlerService } from '@store/tasks/handler/tasks-store-handler.service';
 
 @Component({
@@ -45,6 +46,7 @@ export class TaskComponent implements OnInit {
   labels = LabelsText.task;
   ids = IdsConstant.components.task();
   names = InputNames;
+  readonly taskMaxLength = TaskRules.descriptionMaxLength;
 
   setFormValues$ = effect(() => {
     if(!this.form) return;
@@ -106,7 +108,7 @@ export class TaskComponent implements OnInit {
   private createForm(): FormGroup {
     return this.fb.group({
       [TaskFormNamesEnum.status]: [],
-      [TaskFormNamesEnum.comments]: [],
+      [TaskFormNamesEnum.comments]: [null, [Validators.maxLength(this.taskMaxLength)]],
       [TaskFormNamesEnum.collaborators]: [],
     });
   }

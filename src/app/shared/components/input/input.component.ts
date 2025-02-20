@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { IonInput, IonInputPasswordToggle, IonItem } from '@ionic/angular/standalone';
 import { InputType } from '@shared/types/input.type';
-import { IconButtonComponent } from '../buttons/icon-button/icon-button.component';
 
 @Component({
   selector: 'app-input',
@@ -10,7 +10,8 @@ import { IconButtonComponent } from '../buttons/icon-button/icon-button.componen
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    IconButtonComponent,
+    IonInput,
+    IonInputPasswordToggle,
   ],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
@@ -25,6 +26,8 @@ export class InputComponent {
   label = input('');
   showClear = input(false);
   readonly = input(false);
+  fill = input('outline');
+  labelPlacement = input('floating');
 
   clear(): void {
     this.formField().setValue('');

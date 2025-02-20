@@ -1,17 +1,13 @@
-import { TextFieldModule } from '@angular/cdk/text-field';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { IonTextarea } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-text-area',
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    TextFieldModule,
+    IonTextarea,
   ],
   templateUrl: './text-area.component.html',
   styleUrl: './text-area.component.scss',
@@ -25,4 +21,5 @@ export class TextAreaComponent {
   minRows = input(1);
   maxRow = input(5);
   autoSize = input(true);
+  maxlength = input<number | string | null>(null);
 }

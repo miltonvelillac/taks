@@ -12,6 +12,7 @@ import { IdsConstant } from '@shared/ids/ids.constants';
 import { AddTaskModel } from '@shared/models/add-task.model';
 import { LabelsText } from '@shared/text/labels.texts';
 import { InputNames } from '@shared/utils/names/input.names';
+import { TaskRules } from '@shared/utils/rules/task.rules';
 import { TasksStoreHandlerService } from '@store/tasks/handler/tasks-store-handler.service';
 
 @Component({
@@ -42,6 +43,8 @@ export class AddTaskComponent {
   ids = IdsConstant.components.addTask();
   names = InputNames;
 
+  readonly taskMaxLength = TaskRules.descriptionMaxLength;
+
   getFormField(formNames: AddTaskFormNamesEnum): FormControl {
     return this.form.get(formNames) as FormControl;
   }
@@ -61,7 +64,7 @@ export class AddTaskComponent {
       ],
       [AddTaskFormNamesEnum.description]: [
         null,
-        [Validators.required]
+        [Validators.required, Validators.maxLength(this.taskMaxLength)]
       ],
       [AddTaskFormNamesEnum.completedStartDate]: [
         null,
