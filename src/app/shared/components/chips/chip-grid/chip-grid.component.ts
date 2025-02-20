@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, OnChanges, signal, SimpleChanges } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatChipInputEvent, MatChipsModule } from '@angular/material/chips';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -19,8 +19,7 @@ import { IconComponent } from '@shared/components/icon/icon.component';
   styleUrl: './chip-grid.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChipGridComponent {
-  @Input() reactiveKeywords = signal<string[]>([]);
+export class ChipGridComponent implements OnChanges {
   formField = input.required<FormControl>();
   id = input('');
   name = input('');
@@ -30,6 +29,13 @@ export class ChipGridComponent {
   chipGridArialLabel = input('');
   cancelBtnArialLabel = input('');
   removeIcon = input('cancel');
+  listOfValues = input<string[]>([]);
+  
+  reactiveKeywords = signal<string[]>([]);
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.setInitKeywords();
+  }
 
   removeReactiveKeyword(keyword: string) {
     this.reactiveKeywords.update(keywords => {
@@ -49,5 +55,9 @@ export class ChipGridComponent {
       this.reactiveKeywords.update(keywords => [...keywords, value]);
     }
     event.chipInput!.clear();
+  }
+
+  private setInitKeywords(): void {
+    this.reactiveKeywords.set(this.listOfValues());
   }
 }

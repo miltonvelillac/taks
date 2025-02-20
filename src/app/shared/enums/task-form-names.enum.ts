@@ -1,4 +1,5 @@
 export enum TaskFormNamesEnum {
   comments = 'comments',
-  status = 'status'
+  status = 'status',
+  collaborators = 'collaborators',
 }

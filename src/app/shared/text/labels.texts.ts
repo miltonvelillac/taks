@@ -9,6 +9,7 @@ export const LabelsText = {
     statusLabel: $localize`:@@taskLabelStatus:Status`,
     submitBtn: $localize`:@@taskLabelSubmitBtn:Save`,
     updateStatus: $localize`:@@taskLabelUpdateStatus:Update status`,
+    updatedBy: $localize`:@@taskLabelUpdateBy:Last updated by`,
   },
   addTask: {
     titleSectionLabel: $localize`:@@addTaskLabelTitleSection:Add a task`,

@@ -9,7 +9,7 @@ export class DateTimePipe implements PipeTransform {
 
   angularDatePipe = inject(DatePipe);
 
-  transform(value: string | number): string | null {
+  transform(value?: string | number): string | null {
     return this.angularDatePipe.transform(value);
   }
 

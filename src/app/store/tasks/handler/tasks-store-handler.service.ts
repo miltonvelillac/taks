@@ -3,10 +3,8 @@ import { AddTaskModel } from '@shared/models/add-task.model';
 import { TaskModel } from '@shared/models/task.model';
 import { UserSessionStoreHandlerService } from '@store/user/handler/user-session-store-handler.service';
 import { TasksStore } from '../reducer/tasks-store.reducer';
-import { ActionInfoModel } from '@shared/models/action-info.model';
-import { UserModel } from '@shared/models/user.model';
-import { StatusTaskEnum } from '@shared/enums/status-task.enum';
 import { TasksApiMapperService } from '@shared/mappers/apis/tasks/tasks-api-mapper.service';
+import { UpdateTaskModel } from '@shared/models/update-task.model';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +32,7 @@ export class TasksStoreHandlerService {
     await this.store.add(taskToApi);
   }
 
-  async updateTask(task: Partial<TaskModel>): Promise<void> {
+  async updateTask(task: UpdateTaskModel): Promise<void> {
     const user = this.user.getUser$();
 
     const taskToUpdate = this.tasksApiMapperService.getTaskToUpdateApi({ task, user });

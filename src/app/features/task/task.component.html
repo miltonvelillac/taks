@@ -33,18 +33,26 @@
         </app-text>
       </div>
     }
+
+    @if (task().updatedBy && task().updatedBy.length > 0) {
+      <section class="task__section">
+        <app-label [label]="labels.updatedBy"/>
+        <app-text>
+          <span>{{ task().updatedBy.at(-1)?.user?.email }}</span><span> - </span><time [attr.datetime]="task().updatedBy.at(-1)?.date">{{ task().updatedBy.at(-1)?.date | dateTime}}</time>
+        </app-text>
+      </section>
+    }
   </section>
 
   @if (task().collaborators.length > 0) {
     <section class="task__section">
-      <div class="task__item--col">
-        <app-label [id]="ids.collaboratorsLabel()" [forId]="ids.collaborators()" [label]="labels.collaboratorsLabel"></app-label>
-        <app-text class="task__item">
-          @for (collaborator of task().collaborators; track $index) {
-            <p class="task__item--list" [id]="ids.collaborators() + $index">{{collaborator.email}}</p>
-          }
-        </app-text>
-      </div>
+      <app-chip-grid
+        [formField]="getFormControl(formNames.collaborators)"
+        [listOfValues]="getCollaboratorsEmail()"
+        [label]="labels.collaboratorsLabel"
+        [id]="ids.collaborators()"
+        [name]="names.email"
+      />
     </section>
   }
 

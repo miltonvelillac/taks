@@ -16,7 +16,7 @@ export class TasksApiService {
   async getAll(params: {loggedUser: UserSessionModel | null}): Promise<any[]> {
     const tasksQuery = query(this.taskCollection, where('collaborators', 'array-contains', { email: params.loggedUser?.email || '' }));
     const querySnapshot = await getDocs(tasksQuery);
-    return await querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
   }
 
   async add(task: Partial<TaskModel>): Promise<TaskModel> {
