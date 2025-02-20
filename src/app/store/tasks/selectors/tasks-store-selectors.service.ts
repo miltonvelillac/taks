@@ -9,7 +9,7 @@ export class TaskStoreSelectorsService {
     return computed(() => {
       const direction = filter.order() === 'asc' ? 1 : -1;
 
-      return tasks().sort((taskOne, taskTwo) => direction * taskOne.title.localeCompare(taskTwo.title));
+      return tasks();
     });
   };
 }

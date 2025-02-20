@@ -1,0 +1,20 @@
+<section class="container">
+  <app-card>
+    <section class="login">
+      @if (errorMessage()) { <app-error [id]="ids.errorMessae()" [message]="errorMessage()"/> }
+      <form [formGroup]="form" class="login__form">
+        <app-input type="email" [id]="ids.userInput()" [name]="names.email" [placeholder]="labels.placeholderUser" [showClear]="true" [formField]="getFormField(formNames.user)"/>
+        <app-input type="password" [id]="ids.passwordInput()" [name]="names.password" [placeholder]="labels.placeholderPassword" [showClear]="true" [formField]="getFormField(formNames.password)"/>
+        <app-input type="password" [id]="ids.repeatPasswordInput()" [name]="names.password" [placeholder]="labels.repeatderPassword" [showClear]="true" [formField]="getFormField(formNames.repeatPassword)"/>
+        <section class="login__options">
+          <app-email-btn class="login__btn" [id]="ids.submitBtn()" [label]="labels.signUpBtn" (click)="signUpByEmail()"/>
+          <span>{{labels.actionsBtns}}</span>
+          <app-google-btn [id]="ids.googleBtn()" [label]="labels.googleBtn" (click)="sighUpWithGoogle()" class="google-btn" />
+        </section>
+      </form>
+    </section>
+  </app-card>
+  <article class="sign-in">
+    <app-link-button [id]="ids.loginInBtn()" [label]="labels.loginBtn" (click)="signIn()" />
+  </article>
+</section>

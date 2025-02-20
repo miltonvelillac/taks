@@ -1,6 +1,9 @@
 export const IdsConstant = {
   components: {
     task: (index = '') => ({
+      addComments: (id = `addCommentsTaskId`) => `${id}${index}`,
+      collaboratorsLabel: (id = `collaboratorsLabelTaskId`) => `${id}${index}`,
+      collaborators: (id = `collaboratorsTaskId`) => `${id}${index}`,
       commentsLabel: (id = 'commentsLabelTaskId') =>`${id}${index}`,
       comments: (id = `commentsTaskId`) => `${id}${index}`,
       completedBefore: (id = `completedBeforeTaskId`) => `${id}${index}`,
@@ -15,6 +18,43 @@ export const IdsConstant = {
       statusAction: (id = `statusTasklId`) => `${id}${index}`,
       submitBtn: (id = `submitBtnTaskId`) => `${id}${index}`,
       updateStatus: (id = `updateStatusTaskId`) => `${id}${index}`,
+    }),
+    addTask: (index = '') => ({
+      collaboratorsEmail: (id = 'collaboratorsEmailAddTaskId') =>`${id}${index}`,
+      commentsLabel: (id = 'commentsLabelAddTaskId') =>`${id}${index}`,
+      comments: (id = `commentsAddTaskId`) => `${id}${index}`,
+      completedBefore: (id = `completedBeforeAddTaskId`) => `${id}${index}`,
+      completedBeforeLabel: (id = `completedBeforeLabeAddTaskId`) => `${id}${index}`,
+      completedTimeLabel: (id = `completedTimeLabeAddTaskId`) => `${id}${index}`,
+      completedDate: (id = `completedDateAddTaskId`) => `${id}${index}`,
+      completedStartTime: (id = `completedStartTimeAddTaskId`) => `${id}${index}`,
+      completedEndTime: (id = `completedEndTimeAddTaskId`) => `${id}${index}`,
+      completedByLabel: (id = `completedByLabeAddTaskId`) => `${id}${index}`,
+      completedBy: (id = `completedByAddTaskId`) => `${id}${index}`,
+      description: (id = `descriptionAddTaskId`) => `${id}${index}`,
+      statusLabel: (id = `statusLabelAddTaskId`) => `${id}${index}`,
+      status: (id = `statusAddTaskId`) => `${id}${index}`,
+      statusAction: (id = `statusAddTaskId`) => `${id}${index}`,
+      submitBtn: (id = `submitBtnAddTaskId`) => `${id}${index}`,
+      titleBtn: (id = `titleAddTaskId`) => `${id}${index}`,
+      updateStatus: (id = `updateStatusAddTaskId`) => `${id}${index}`,
+    }),
+    login: (index = '') => ({
+      errorMessae: (id = 'errorMessageLoginId') => `${id}${index}`,
+      userInput: (id = 'userLoginId') => `${id}${index}`,
+      passwordInput: (id = 'passwordLoginId') => `${id}${index}`,
+      submitBtn: (id = 'submitBtnLoginId') => `${id}${index}`,
+      googleBtn: (id = 'googleBtnLoginId') => `${id}${index}`,
+      signInBtn: (id = 'signInBtnLoginId') => `${id}${index}`,
+    }),
+    signIn: (index = '') => ({
+      errorMessae: (id = 'errorMessageLoginId') => `${id}${index}`,
+      userInput: (id = 'userLoginId') => `${id}${index}`,
+      passwordInput: (id = 'passwordLoginId') => `${id}${index}`,
+      repeatPasswordInput: (id = 'repeatPasswordLoginId') => `${id}${index}`,
+      submitBtn: (id = 'submitBtnLoginId') => `${id}${index}`,
+      googleBtn: (id = 'googleBtnLoginId') => `${id}${index}`,
+      loginInBtn: (id = 'loginBtnLoginId') => `${id}${index}`,
     })
-  }
+  },
 }

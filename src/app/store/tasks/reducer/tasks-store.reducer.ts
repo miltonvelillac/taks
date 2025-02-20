@@ -1,15 +1,16 @@
+import { inject } from '@angular/core';
 import {
   patchState,
   signalStore,
+  withComputed,
   withMethods,
   withState,
-  withComputed,
 } from '@ngrx/signals';
-import { inject } from '@angular/core';
+import { TasksApiService } from '@shared/apis/tasks/tasks-api.service';
+import { TasksApiMapperService } from '@shared/mappers/apis/tasks/tasks-api-mapper.service';
 import { TaskModel } from '@shared/models/task.model';
+import { UserSessionModel } from '@shared/models/user-session.model';
 import { TaskStoreSelectorsService } from '../selectors/tasks-store-selectors.service';
-import { TasksApiService } from '@shared/apis/tasks-api.service';
-import { TasksApiMapperService } from '@shared/mappers/apis/tasks-api-mapper.service';
 
 type TasksState = {
   tasks: TaskModel[];
@@ -46,18 +47,17 @@ export const TasksStore = signalStore(
       patchState(store, (state) => ({ filter: { ...state.filter, order } }));
     },
 
-    async loadAll(): Promise<void> {
+    async loadAll(params: {loggedUser: UserSessionModel | null}): Promise<void> {
       patchState(store, { isLoading: true });
 
-      const tasksFromApi = await tasksApiService.getAll();
+      const tasksFromApi = await tasksApiService.getAll({ loggedUser: params.loggedUser });
       const tasks = tasksApiMapperService.getAllTasksFromApi(tasksFromApi);
       patchState(store, { tasks, isLoading: false });
     },
 
-    async add(task: TaskModel): Promise<void> {
+    async add(task: Partial<TaskModel>): Promise<void> {
       patchState(store, { isLoading: true });
-      const taskToApi = tasksApiMapperService.getTaskToSaveApi(task);
-      const addedTask = await tasksApiService.add(taskToApi);
+      const addedTask = await tasksApiService.add(task);
 
       patchState(store, {
         tasks: [...store.tasks(), addedTask],
@@ -65,21 +65,11 @@ export const TasksStore = signalStore(
       });
     },
 
-    async update(task: TaskModel): Promise<void> {
+    async update(task: Partial<TaskModel>): Promise<void> {
       patchState(store, { isLoading: true });
-      const taskToApi = tasksApiMapperService.getTaskToSaveApi(task);
-      const addedTask = await tasksApiService.update(taskToApi);
-
-      const tasks = store.tasks();
-      const updatedTasks = tasks.map(t => {
-        if (t.id === task.id) {
-          return task;
-        }
-        return t;
-      })
+      await tasksApiService.update(task);
 
       patchState(store, {
-        tasks: updatedTasks,
         isLoading: false,
       });
     },
