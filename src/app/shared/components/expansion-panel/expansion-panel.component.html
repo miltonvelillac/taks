@@ -1,8 +1,10 @@
-<mat-accordion [id]="id()">
-  <mat-expansion-panel [expanded]="panelOpenState()" (opened)="setOpenState(true)" (closed)="setOpenState(false)">
-    <mat-expansion-panel-header>
+<ion-accordion-group [id]="id()">
+  <ion-accordion value="first">
+    <ion-item slot="header">
       <ng-content select="[closeContent]"></ng-content>
-    </mat-expansion-panel-header>
-    <ng-content select="[openContent]"></ng-content>
-  </mat-expansion-panel>
-</mat-accordion>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ng-content select="[openContent]"></ng-content>
+    </div>
+  </ion-accordion>
+</ion-accordion-group>

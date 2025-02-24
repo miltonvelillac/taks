@@ -1,10 +1,12 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import {MatCardModule} from '@angular/material/card';
+import { IonCard, IonCardContent, IonCardHeader } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-card',
   imports: [
-    MatCardModule
+    IonCard,
+    IonCardContent,
+    IonCardHeader,
   ],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',

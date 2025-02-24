@@ -1,9 +1,17 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { MatExpansionModule } from '@angular/material/expansion';
+import {
+  IonAccordion,
+  IonAccordionGroup,
+  IonItem
+} from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-expansion-panel',
-  imports: [MatExpansionModule],
+  imports: [
+    IonAccordion,
+    IonAccordionGroup,
+    IonItem,
+  ],
   templateUrl: './expansion-panel.component.html',
   styleUrl: './expansion-panel.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

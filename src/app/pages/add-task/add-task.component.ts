@@ -15,6 +15,7 @@ import { TaskRules } from '@shared/utils/rules/task.rules';
 import { TasksStoreHandlerService } from '@store/tasks/handler/tasks-store-handler.service';
 import { LabelComponent } from "../../shared/components/label/label.component";
 import { LoadingComponent } from '@shared/components/loadings/loading/loading.component';
+import { CardComponent } from '@shared/components/cards/card/card.component';
 
 @Component({
   selector: 'app-add-task',
@@ -29,6 +30,7 @@ import { LoadingComponent } from '@shared/components/loadings/loading/loading.co
     ChipGridComponent,
     LabelComponent,
     LoadingComponent,
+    CardComponent,
 ],
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.scss',

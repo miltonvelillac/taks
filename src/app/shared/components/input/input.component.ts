@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { IonInput, IonInputPasswordToggle, IonItem } from '@ionic/angular/standalone';
+import { IonInput, IonInputPasswordToggle } from '@ionic/angular/standalone';
 import { InputAutoCompleteType } from '@shared/types/input-auto-complete.type';
 import { InputType } from '@shared/types/input.type';
 
@@ -10,7 +9,6 @@ import { InputType } from '@shared/types/input.type';
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule,
     IonInput,
     IonInputPasswordToggle,
   ],
