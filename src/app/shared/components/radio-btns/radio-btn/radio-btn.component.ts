@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatRadioModule } from '@angular/material/radio';
+import { IonRadio, IonRadioGroup } from '@ionic/angular/standalone';
 import { RadioBtnOptionsModel } from '@shared/models/radio-btn-options.model';
 
 @Component({
@@ -8,7 +8,8 @@ import { RadioBtnOptionsModel } from '@shared/models/radio-btn-options.model';
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    MatRadioModule
+    IonRadio,
+    IonRadioGroup,
   ],
   templateUrl: './radio-btn.component.html',
   styleUrl: './radio-btn.component.scss'

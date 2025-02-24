@@ -9,6 +9,9 @@
   [clearInput]="showClearBtn()"
   [fill]="fill()"
   [attr.label-placement]="labelPlacement()"
+  [autocomplete]="autocomplete()"
+  (ionBlur)="blurEvent()"
+  (keydown.enter)="enterEvent()"
 >
   @if(type() === 'password') {
     <ion-input-password-toggle slot="end"></ion-input-password-toggle>

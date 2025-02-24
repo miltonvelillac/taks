@@ -1,20 +1,11 @@
-<mat-form-field class="field">
-  @if(label()) { <mat-label>{{label()}}</mat-label> }
-  <mat-chip-grid #reactiveChipGrid [attr.aria-label]="chipGridArialLabel()" [formControl]="formField()">
-  @for (keyword of reactiveKeywords(); track $index) {
-    <mat-chip-row (removed)="removeReactiveKeyword(keyword)">
-      {{keyword}}
-    <button matChipRemove [attr.aria-label]="cancelBtnArialLabel() + keyword">
-      <app-icon [icon]="removeIcon()" />
-    </button>
-    </mat-chip-row>
-  }
-  </mat-chip-grid>
-  <input
-    [name]="name()"
-    [matChipInputAddOnBlur]="addOnBlur()"
-    [placeholder]="placeholder()"
-    [matChipInputFor]="reactiveChipGrid"
-    (matChipInputTokenEnd)="addReactiveKeyword($event)"
-  />
-</mat-form-field>
+<app-input
+  [formField]="inputField"
+  [name]="name()"
+  [label]="label()"
+  [type]="inputType()"
+  (blur)="addReactiveKeyword()"
+  (enter)="addReactiveKeyword()"
+/>
+@for (keyword of reactiveKeywords(); track $index) {
+  <app-chip [label]="keyword" (remove$)="removeReactiveKeyword($event)"/>
+}

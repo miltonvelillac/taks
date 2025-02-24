@@ -1,0 +1,4 @@
+<ion-chip [outline]="outline()">
+  <app-text>{{label()}}</app-text>
+  @if (showRemoveIcon()) {<app-icon class="remove" [icon]="removeIcon()" (click)="removeChip()" />}
+</ion-chip>

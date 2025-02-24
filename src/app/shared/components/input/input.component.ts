@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { IonInput, IonInputPasswordToggle, IonItem } from '@ionic/angular/standalone';
+import { InputAutoCompleteType } from '@shared/types/input-auto-complete.type';
 import { InputType } from '@shared/types/input.type';
 
 @Component({
@@ -28,6 +29,10 @@ export class InputComponent {
   readonly = input(false);
   fill = input('outline');
   labelPlacement = input('floating');
+  autocomplete = input<InputAutoCompleteType>('on');
+
+  blur = output<void>();
+  enter = output<void>();
 
   clear(): void {
     this.formField().setValue('');
@@ -35,5 +40,13 @@ export class InputComponent {
 
   showClearBtn(): boolean {
     return this.showClear() && !!this.formField().value;
+  }
+
+  blurEvent(): void {
+    this.blur.emit();
+  }
+
+  enterEvent(): void {
+    this.enter.emit();
   }
 }

@@ -1,8 +1,11 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { IonLabel } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-label',
-  imports: [],
+  imports: [
+    IonLabel,
+  ],
   templateUrl: './label.component.html',
   styleUrl: './label.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

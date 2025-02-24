@@ -2,7 +2,7 @@ export const LabelsText = {
   task: {
     commentsLabel: $localize`:@@taskLabelComments:Comments`,
     addCommentsLabel: $localize`:@@taskLabelAddCommentsLabel:Add comments`,
-    collaboratorsLabel: $localize`:@@taskLabelCollaborators:Collaborators`,
+    collaboratorsLabel: $localize`:@@taskLabelCollaborators:Add Collaborators`,
     completedBeforeLabel: $localize`:@@taskLabelCompletedBefore:Complete before`,
     completedTimeLabel: $localize`:@@taskLabelCompletedTime:On`,
     completedByLabel: $localize`:@@taskLabelCompletedBy:Completed by`,

@@ -1,19 +1,16 @@
-import { ChangeDetectionStrategy, Component, input, OnChanges, signal, SimpleChanges } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatChipInputEvent, MatChipsModule } from '@angular/material/chips';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { IconComponent } from '@shared/components/icon/icon.component';
+import { ChangeDetectionStrategy, Component, inject, input, OnChanges, signal, SimpleChanges } from '@angular/core';
+import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InputComponent } from '@shared/components/input/input.component';
+import { ChipComponent } from '../chip/chip.component';
+import { InputType } from '@shared/types/input.type';
 
 @Component({
   selector: 'app-chip-grid',
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatChipsModule,
-    IconComponent,
+    ChipComponent,
+    InputComponent,
   ],
   templateUrl: './chip-grid.component.html',
   styleUrl: './chip-grid.component.scss',
@@ -30,8 +27,12 @@ export class ChipGridComponent implements OnChanges {
   cancelBtnArialLabel = input('');
   removeIcon = input('cancel');
   listOfValues = input<string[]>([]);
-  
+  inputType = input<InputType>('text');
+
   reactiveKeywords = signal<string[]>([]);
+
+  fb = inject(FormBuilder);
+  inputField = this.fb.control('');
 
   ngOnChanges(changes: SimpleChanges): void {
     this.setInitKeywords();
@@ -49,12 +50,11 @@ export class ChipGridComponent implements OnChanges {
     });
   }
 
-  addReactiveKeyword(event: MatChipInputEvent): void {
-    const value = (event.value || '').trim();
-    if (value) {
-      this.reactiveKeywords.update(keywords => [...keywords, value]);
-    }
-    event.chipInput!.clear();
+  addReactiveKeyword(): void {
+    const value = (this.inputField.value || '').trim();
+    if (!value) return;
+    this.reactiveKeywords.update(keywords => [...keywords, value]);
+    this.inputField.setValue('');
   }
 
   private setInitKeywords(): void {

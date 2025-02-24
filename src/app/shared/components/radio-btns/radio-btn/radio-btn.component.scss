@@ -1,17 +1,34 @@
 .radio-btn {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  justify-content: space-between;
+}
+
+:host(.radio-label-placement-start) .label-text-wrapper {
+  margin-inline-start: 0px 0.3rem;
 }
 
 :host-context(.col) .radio-btn {
   flex-direction: column;
 }
 
-:host-context(.no-wrap) .radio-btn {
-  flex-wrap: nowrap;
+
+ion-radio {
+  --border-radius: 4px;
+  --inner-border-radius: 4px;
+
+  --color: #ddd;
+  --color-checked: #6815ec;
 }
 
-:host ::ng-deep .mat-mdc-radio-button .mdc-radio {
-  padding: 0 !important;
+ion-radio.ios::part(container) {
+  width: 20px;
+  height: 20px;
+
+  border: 2px solid #ddd;
+  border-radius: 4px;
+}
+
+.radio-checked.ios::part(container) {
+  border-color: #6815ec;
 }

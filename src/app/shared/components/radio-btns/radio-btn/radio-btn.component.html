@@ -1,5 +1,5 @@
-<mat-radio-group [id]="id" [attr.aria-label]="arialLabel()" [formControl]="formField()" class="radio-btn">
+<ion-radio-group value="strawberries" [id]="id()" [attr.aria-label]="arialLabel()" [formControl]="formField()" class="radio-btn">
   @for (opt of options(); track $index) {
-    <mat-radio-button [id]="id()+$index" [value]="opt.value">{{opt.label}}</mat-radio-button>
+    <ion-radio [id]="id()+$index" [value]="opt.value">{{opt.label}}</ion-radio><br />
   }
-</mat-radio-group>
+</ion-radio-group>
