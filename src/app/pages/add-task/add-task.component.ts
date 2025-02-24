@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '@shared/components/buttons/button/button.component';
 import { ChipGridComponent } from '@shared/components/chips/chip-grid/chip-grid.component';
@@ -14,6 +14,7 @@ import { InputNames } from '@shared/utils/names/input.names';
 import { TaskRules } from '@shared/utils/rules/task.rules';
 import { TasksStoreHandlerService } from '@store/tasks/handler/tasks-store-handler.service';
 import { LabelComponent } from "../../shared/components/label/label.component";
+import { LoadingComponent } from '@shared/components/loadings/loading/loading.component';
 
 @Component({
   selector: 'app-add-task',
@@ -27,6 +28,7 @@ import { LabelComponent } from "../../shared/components/label/label.component";
     ButtonComponent,
     ChipGridComponent,
     LabelComponent,
+    LoadingComponent,
 ],
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.scss',
@@ -44,6 +46,7 @@ export class AddTaskComponent {
   names = InputNames;
 
   readonly taskMaxLength = TaskRules.descriptionMaxLength;
+  readonly isLoading$ = computed(() => this.tasksStoreHandlerService.getIsLoading());
 
   getFormField(formNames: AddTaskFormNamesEnum): FormControl {
     return this.form.get(formNames) as FormControl;

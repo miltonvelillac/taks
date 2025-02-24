@@ -32,11 +32,14 @@ export const TasksStore = signalStore(
   withState(initialState),
   withComputed(
     (
-      { tasks, filter },
+      { tasks, filter, isLoading },
       taskStoreSelectorsService = inject(TaskStoreSelectorsService)
-    ) => ({
-      sortedTasks: taskStoreSelectorsService.sortedTasks(tasks, filter),
-    })
+    ) => {
+      return ({
+        sortedTasks: taskStoreSelectorsService.sortedTasks(tasks, filter),
+        isLoadingFn: taskStoreSelectorsService.getLoading(isLoading),
+      })
+    }
   ),
   withMethods((store, tasksApiService = inject(TasksApiService), tasksApiMapperService = inject(TasksApiMapperService)) => ({
     updateQuery(query: string): void {
@@ -57,10 +60,9 @@ export const TasksStore = signalStore(
 
     async add(task: Partial<TaskModel>): Promise<void> {
       patchState(store, { isLoading: true });
-      const addedTask = await tasksApiService.add(task);
+      await tasksApiService.add(task);
 
       patchState(store, {
-        tasks: [...store.tasks(), addedTask],
         isLoading: false,
       });
     },
