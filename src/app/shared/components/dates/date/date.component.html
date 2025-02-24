@@ -1,1 +1,10 @@
-<p>date works!</p>
+
+<ion-datetime-button [datetime]="id()"></ion-datetime-button>
+<ion-modal [keepContentsMounted]="true">
+  <ng-template>
+    <ion-datetime
+      [id]="id()"
+      [formControl]="formField()"
+    ></ion-datetime>
+  </ng-template>
+</ion-modal>

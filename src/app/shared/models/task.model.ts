@@ -7,8 +7,7 @@ export interface TaskModel {
   title: string;
   description: string;
   status: StatusTaskEnum;
-  expectedStartDate: number;
-  expectedEndDate: number;
+  date: string;
   completedTime: number;
   comments: string;
   createdBy: ActionInfoModel;

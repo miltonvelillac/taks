@@ -54,10 +54,16 @@ export class ChipGridComponent implements OnChanges {
     const value = (this.inputField.value || '').trim();
     if (!value) return;
     this.reactiveKeywords.update(keywords => [...keywords, value]);
+    this.setValues();
     this.inputField.setValue('');
   }
 
   private setInitKeywords(): void {
     this.reactiveKeywords.set(this.listOfValues());
+  }
+
+  private setValues(): void {
+    const listValues = this.reactiveKeywords() ? [...this.reactiveKeywords()] : [];
+    this.formField().setValue(listValues);
   }
 }

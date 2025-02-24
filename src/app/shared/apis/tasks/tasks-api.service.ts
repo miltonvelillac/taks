@@ -20,6 +20,7 @@ export class TasksApiService {
   }
 
   async add(task: Partial<TaskModel>): Promise<TaskModel> {
+    console.log(task)
     return await addDoc(this.taskCollection, { ...task, createdAt: Date.now() }) as any;
   }
 

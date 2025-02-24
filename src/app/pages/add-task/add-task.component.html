@@ -9,28 +9,11 @@
       [name]="names.title"
       type="text"
     ></app-input>
-    <app-date-range
-      class="form__field"
-      [startFormField]="getFormField(formNames.completedStartDate)"
-      [endFormField]="getFormField(formNames.completedEndDate)"
-      [id]="ids.completedDate()"
-      [label]="labels.completedExpectedDateLabel"
-      [name]="names.date"
-      [placeholerStartDate]="labels.completedStatDateLabel"
-      [placeholerEndDate]="labels.completedEndDateLabel"
-    />
-    <section class="form__time">
-      <app-time
-        [formField]="getFormField(formNames.completedStartTime)"
-        [id]="ids.completedStartTime()"
-        [name]="names.time"
-        [label]="labels.completedStatTimeLabel"
-      />
-      <app-time
-        [formField]="getFormField(formNames.completedEndTime)"
-        [id]="ids.completedEndTime()"
-        [name]="names.time"
-        [label]="labels.completedEndTimeLabel"
+    <section class="form__date">
+      <app-label [label]="labels.date"/>
+      <app-date
+        [id]="ids.date()"
+        [formField]="getFormField(formNames.date)"
       />
     </section>
     <app-text-area

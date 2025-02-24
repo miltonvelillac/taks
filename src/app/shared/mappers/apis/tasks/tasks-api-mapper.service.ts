@@ -6,7 +6,6 @@ import { TaskModel } from '@shared/models/task.model';
 import { UpdateTaskModel } from '@shared/models/update-task.model';
 import { UserSessionModel } from '@shared/models/user-session.model';
 import { UserModel } from '@shared/models/user.model';
-import { DateUtils } from '@shared/utils/dates/dates.utils';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +20,7 @@ export class TasksApiMapperService {
       collaborators: task.collaborators,
       createdBy: task.createdBy,
       description: task.description,
-      expectedEndDate: task.expectedEndDate,
-      expectedStartDate: task.expectedStartDate,
+      date: task.date,
       title: task.title,
       status: task.status,
       comments: task.comments,
@@ -35,14 +33,11 @@ export class TasksApiMapperService {
     const { task, user } = props;
     const createdBy: ActionInfoModel = { user: { uid: user?.uid, email: user?.email || '' } };
     const collaborators = this.getCollaborators({ user: user, collEmails: task.collaboratorsEmail });
-    const expectedStartDate = DateUtils.getDateTime({ date: task.completedStartDate, time: task.completedStartTime });
-    const expectedEndDate = DateUtils.getDateTime({ date: task.completedEndDate, time: task.completedEndTime });
 
     return {
       title: task.title,
       description: task.description,
-      expectedStartDate,
-      expectedEndDate,
+      date: task.date,
       collaborators,
       createdBy,
       status: task.status || StatusTaskEnum.notcompleted,
