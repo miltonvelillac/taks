@@ -10,7 +10,10 @@
     "test": "ng test",
     "serve:ssr:tasks": "node dist/tasks/server/server.mjs",
     "extract-i18n": "ng extract-i18n --output-path src/locale",
-    "copy-extract-i18n": "cp src/locale/messages.xlf src/locale/messages.es.xlf"
+    "copy-extract-i18n": "cp src/locale/messages.xlf src/locale/messages.es.xlf",
+    "build:ionic": "ionic build --project=tasks --prod",
+    "deploy:firebase": "firebase deploy --project tasks-38972",
+    "firebase:list": "firebase projects:list"
   },
   "private": true,
   "dependencies": {

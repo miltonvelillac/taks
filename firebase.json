@@ -1,1 +1,31 @@
-{}
+{
+  "hosting": {
+    "public": "dist/tasks/browser",
+    "rewrites": [
+      {
+        "source": "/es/**",
+        "destination": "/es/index.html"
+      },
+      {
+        "source": "/en-US/**",
+        "destination": "/en/index.html"
+      },
+      {
+        "source": "/**",
+        "destination": "/en-US/index.html"
+      }
+    ],
+    "cleanUrls": true,
+    "headers": [
+      {
+        "source": "/browser/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600, s-maxage=3600"
+          }
+        ]
+      }
+    ]
+  }
+}

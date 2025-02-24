@@ -1,6 +1,6 @@
 {
   "name": "ionic-app",
-  "app_id": "",
+  "integrations": {},
   "type": "angular-standalone",
-  "integrations": {}
+  "id": "tasks-38972"
 }
