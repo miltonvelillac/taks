@@ -43,7 +43,7 @@
 
   @if (task().collaborators && task().collaborators.length > 0) {
     <section class="task__section">
-      <app-chip-grid
+      <app-email-chips
         [formField]="getFormControl(formNames.collaborators)"
         [listOfValues]="getCollaboratorsEmail()"
         [label]="labels.collaboratorsLabel"

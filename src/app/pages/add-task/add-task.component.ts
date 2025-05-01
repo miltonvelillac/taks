@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '@shared/components/buttons/button/button.component';
-import { ChipGridComponent } from '@shared/components/chips/chip-grid/chip-grid.component';
+import { EmailChipsComponent } from '@shared/components/chips/email-chip-grid/email-chips.component';
 import { DateComponent } from '@shared/components/dates/date/date.component';
 import { InputComponent } from '@shared/components/input/input.component';
 import { TextAreaComponent } from '@shared/components/text-areas/text-area/text-area.component';
@@ -27,7 +27,7 @@ import { CardComponent } from '@shared/components/cards/card/card.component';
     TextAreaComponent,
     TitleComponent,
     ButtonComponent,
-    ChipGridComponent,
+    EmailChipsComponent,
     LabelComponent,
     LoadingComponent,
     CardComponent,

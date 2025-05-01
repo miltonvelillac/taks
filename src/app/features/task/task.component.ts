@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, effect, inject, Input, input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, effect, inject, input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { StatusOptionsComponent } from '@features/status-options/status-options.component';
 import { ButtonComponent } from '@shared/components/buttons/button/button.component';
-import { ChipGridComponent } from '@shared/components/chips/chip-grid/chip-grid.component';
+import { EmailChipsComponent } from '@shared/components/chips/email-chip-grid/email-chips.component';
 import { LabelComponent } from '@shared/components/label/label.component';
 import { TextAreaComponent } from '@shared/components/text-areas/text-area/text-area.component';
 import { TextComponent } from '@shared/components/text/text.component';
@@ -15,6 +15,7 @@ import { TaskStatusPipe } from '@shared/pipes/task-status/task-status.pipe';
 import { LabelsText } from '@shared/text/labels.texts';
 import { InputNames } from '@shared/utils/names/input.names';
 import { TaskRules } from '@shared/utils/rules/task.rules';
+import { EmailValidatorService } from '@shared/validators/form/email/email-validator.service';
 import { TasksStoreHandlerService } from '@store/tasks/handler/tasks-store-handler.service';
 
 @Component({
@@ -32,13 +33,14 @@ import { TasksStoreHandlerService } from '@store/tasks/handler/tasks-store-handl
     StatusOptionsComponent,
     LabelComponent,
     TextAreaComponent,
-    ChipGridComponent,
+    EmailChipsComponent,
   ],
 })
 export class TaskComponent implements OnInit {
   task = input.required<TaskModel>();
 
   tasksStoreHandlerService = inject(TasksStoreHandlerService);
+  emailValidatorService = inject(EmailValidatorService);
   fb = inject(FormBuilder);
   form = this.createForm();
 
@@ -109,7 +111,7 @@ export class TaskComponent implements OnInit {
     return this.fb.group({
       [TaskFormNamesEnum.status]: [],
       [TaskFormNamesEnum.comments]: [null, [Validators.maxLength(this.taskMaxLength)]],
-      [TaskFormNamesEnum.collaborators]: [],
+      [TaskFormNamesEnum.collaborators]: [[], [ this.emailValidatorService.validEmailList() ]],
     });
   }
 

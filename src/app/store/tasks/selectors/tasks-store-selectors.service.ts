@@ -13,7 +13,6 @@ export class TaskStoreSelectorsService {
     });
   };
   getLoading = (isLoading: Signal<boolean>) => {
-    console.log('loaddinnnnn')
     return computed(() => {
       return isLoading();
     });

@@ -56,6 +56,9 @@ export const LabelsText = {
   validators: {
     password: {
       repeat: $localize`:@@validatorsPasswordRepeat:Passwords are not the same`,
+    },
+    email: {
+      invalid: $localize`:@@validatorsInvalidEmail:The following emails are invalid`,
     }
   }
 }

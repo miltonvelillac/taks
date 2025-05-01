@@ -1,22 +1,22 @@
 import { ChangeDetectionStrategy, Component, inject, input, OnChanges, signal, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { InputComponent } from '@shared/components/input/input.component';
-import { ChipComponent } from '../chip/chip.component';
 import { InputType } from '@shared/types/input.type';
+import { ChipComponent } from '../chip/chip.component';
 
 @Component({
-  selector: 'app-chip-grid',
+  selector: 'app-email-chips',
   imports: [
     FormsModule,
     ReactiveFormsModule,
     ChipComponent,
     InputComponent,
   ],
-  templateUrl: './chip-grid.component.html',
-  styleUrl: './chip-grid.component.scss',
+  templateUrl: './email-chips.component.html',
+  styleUrl: './email-chips.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChipGridComponent implements OnChanges {
+export class EmailChipsComponent implements OnChanges {
   formField = input.required<FormControl>();
   id = input('');
   name = input('');
@@ -32,7 +32,9 @@ export class ChipGridComponent implements OnChanges {
   reactiveKeywords = signal<string[]>([]);
 
   fb = inject(FormBuilder);
-  inputField = this.fb.control('');
+  inputField = this.fb.control('', [ Validators.email ]);
+
+  constructor() {}
 
   ngOnChanges(changes: SimpleChanges): void {
     this.setInitKeywords();
@@ -51,6 +53,7 @@ export class ChipGridComponent implements OnChanges {
   }
 
   addReactiveKeyword(): void {
+    if(!this.inputField.valid) return;
     const value = (this.inputField.value || '').trim();
     if (!value) return;
     this.reactiveKeywords.update(keywords => [...keywords, value]);

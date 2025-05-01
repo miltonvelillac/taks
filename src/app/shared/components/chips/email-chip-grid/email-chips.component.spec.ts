@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChipGridComponent } from './chip-grid.component';
+import { EmailChipsComponent } from './email-chips.component';
 
-describe('ChipGridComponent', () => {
-  let component: ChipGridComponent;
-  let fixture: ComponentFixture<ChipGridComponent>;
+describe('EmailChipsComponent', () => {
+  let component: EmailChipsComponent;
+  let fixture: ComponentFixture<EmailChipsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ChipGridComponent]
+      imports: [EmailChipsComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ChipGridComponent);
+    fixture = TestBed.createComponent(EmailChipsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

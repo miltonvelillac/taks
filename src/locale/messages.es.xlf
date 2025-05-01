@@ -279,6 +279,13 @@
           <context context-type="linenumber">58</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="validatorsInvalidEmail" datatype="html">
+        <source>The email is not valid</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/text/labels.texts.ts</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>
